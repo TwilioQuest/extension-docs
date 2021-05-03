@@ -8,6 +8,8 @@ module.exports = {
    */
   description: 'Get started building new adventures in TwilioQuest.',
 
+  base: '/extension-docs/',
+
   /**
    * Extra tags to be injected to the page HTML `<head>`
    *
