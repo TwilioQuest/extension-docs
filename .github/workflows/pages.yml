@@ -1,0 +1,27 @@
+name: Deploy Documentation Website
+push:
+  branches:
+    - main
+jobs:
+  run:
+    name: Deploy GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Docs Repo
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Vuepress build
+        run: npm run build
+
+      - name: Commit changes for GitHub Pages
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: github-actions
