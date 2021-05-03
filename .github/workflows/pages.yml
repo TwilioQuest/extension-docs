@@ -1,7 +1,8 @@
 name: Deploy Documentation Website
-push:
-  branches:
-    - main
+on:
+  push:
+    branches:
+      - main
 jobs:
   run:
     name: Deploy GitHub Pages
