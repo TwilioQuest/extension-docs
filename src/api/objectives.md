@@ -1,5 +1,7 @@
 # Objective Configuration
 
+Configuration properties for your objective are editable in `levels/<level_name>/objectives/<objective_name>/objective.json`. Here is a breakdown of all the components of `objective.json`:
+
 ## Properties
 
 ### title
