@@ -4,7 +4,15 @@ Levels expose a series of APIs and events that let you script custom behavior. S
 
 The `events.js` file exports a single event handler function as it's default export. As events occur during the lifecycle of TwilioQuest, this function gets invoked with two properties. The first is an `event` object describing the event. The second is a `world` API object allowing you to modify the game world.
 
-## Event
+### Example
+
+`events.js`
+
+```js
+module.exports = (event, world) => {};
+```
+
+## Event Object
 
 There are a variety of different events that you can respond to. The only required property on each event is `name`. You should use it to key off of and know which other properties to expect.
 
@@ -123,3 +131,142 @@ Triggers after a player attempts to hack an objective they've already completed 
 - `objective (String)`: The name of the objective that was passed.
 
 ## World
+
+### getState
+
+- type: `function`
+
+Get a level state object for the corresponding key. This state is intended to be used by level authors to persist arbitrary information about their level.
+
+#### Parameters
+
+- `key (String)`: A unique key to represent this level. Be aware that any invocation of setState from _any_ level, not just yours.
+
+#### Return
+
+- `Object`: any arbitary object of data a level author wishes to store
+
+### setState
+
+- type: `function`
+
+Set a level state object for the corresponding key. This state is intended to be used by level authors to persist arbitrary information about their level.
+
+#### Parameters
+
+- `key (String)`: A unique key to represent this level. Be aware that any invocation of setState from _any_ level, not just yours.
+- `value (Object)`: Arbitrary level data to persist.
+
+### startConversation
+
+- type: `function`
+
+Start a specified conversation file with a provided NPC name.
+
+#### Parameters
+
+- `conversation (String)`: A key representing a specific conversation file to be loaded.
+- `name (String)`: The name that shows up for the NPC speaking to the player.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+### showEntities
+
+- type: `function`
+
+Visually show all entities that match the provided key or filter function.
+
+#### Parameters
+
+- `keyOrFilter (String | Function)`: If this property is a string it will match all entities that have a `key` prop of the same value. If this is a function it will work as a filter function with the signature: `({ instance, collections, group, guid }) => Boolean`.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+### hideEntities
+
+- type: `function`
+
+Visually hide all entities that match the provided key or filter function.
+
+#### Parameters
+
+- `keyOrFilter (String | Function)`: If this property is a string it will match all entities that have a `key` prop of the same value. If this is a function it will work as a filter function with the signature: `({ instance, collections, group, guid }) => Boolean`.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+### destroyEntities
+
+- type: `function`
+
+Destroy (remove and clean up) all entities that match the provided key or filter function.
+
+#### Parameters
+
+- `keyOrFilter (String | Function)`: If this property is a string it will match all entities that have a `key` prop of the same value. If this is a function it will work as a filter function with the signature: `({ instance, collections, group, guid }) => Boolean`.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+### forEachEntities
+
+- type: `function`
+
+Iterate over all entities that match the provided key or filter function.
+
+#### Parameters
+
+- `keyOrFilter (String | Function)`: If this property is a string it will match all entities that have a `key` prop of the same value. If this is a function it will work as a filter function with the signature: `({ instance, collections, group, guid }) => Boolean`.
+- `forEach (Function)`: This function will be executed once for each entity that matches the `keyOrFilter`. This function has the signature: `(instance) => {}`
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+### showNotification
+
+- type: `function`
+
+Display a toast message on the lower half of the screen. This is the same style of message as interaction text effects.
+
+#### Parameters
+
+- `toastMessage (String)`: This is the text string that will be displayed in the message. HTML is valid here.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+### scheduleTimerEvent
+
+- type: `function`
+
+Set an event payload that will re-trigger your event handler at a specified time.
+
+#### Parameters
+
+- `payload (Object)`: This object will have it's properties spread over the event object that is passed into the event handler.
+- `timeout (Number)`: Delay in milliseconds before the conversation starts playing.
+
+### removeObjective
+
+- type: `function`
+
+Clear a player's progress of the specified objective. This is useful if you need to perform data migrations between different versions of your level.
+
+#### Parameters
+
+- `missionName (String)`: The key of the mission this objective is owned by.
+- `objectiveName (String)`: The key of the objective being cleared.
+
+### entityService
+
+### getContext
+
+### setContext
+
+### emitter
+
+### levelLoader
+
+### levelsDirectoryPath,
+
+### screenShake
+
+### enableTransitionAreas
+
+### disableTransitionAreas
+
+### isObjectiveCompleted
+
+### getCurrentMapName
+
+### getCurrentLevelName
