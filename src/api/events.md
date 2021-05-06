@@ -286,7 +286,7 @@ This is an underlying TwilioQuest object that exposes a lot of functionality abo
 
 This is an underlying TwilioQuest object that exposes a lot of functionality about how we store and manage levels. This API may not be stable.
 
-### [DEPRECATED] levelsDirectoryPath,
+### levelsDirectoryPath <Badge text="deprecated" type="warning"/>
 
 - type: `string`
 
@@ -359,3 +359,59 @@ Get the name of the currently loaded level. This can be useful for reusable logi
 #### Return
 
 - `String`: the currently loaded level name
+
+## Examples
+
+```js
+const MISSION_COMPUTER_ARROW = "floating_arrow_mission_computer";
+const CEDRIC_ARROW = "floating_arrow_cedric";
+const FOG_OWL_STATE_KEY = "twilioquest.fog_owl";
+const DEFAULT_STATE = {
+  hadFirstConversation: false,
+  hasSeenMissionComputer: false,
+};
+
+module.exports = function(event, world) {
+  // Get our level's global state, use our default state if it's not found
+  const fogOwlState = world.getState(FOG_OWL_STATE_KEY) || DEFAULT_STATE;
+
+  // First run onboarding sequence
+  if (event.name === "levelDidLoad" && fogOwlState.hadFirstConversation) {
+    world.startConversation("cedric_initial", "cedric", 500);
+  }
+
+  // Reveal the arrow above Cedric's head
+  if (
+    event.name === "conversationDidEnd" &&
+    event.npc.conversation === "cedric_initial"
+  ) {
+    world.showEntities(CEDRIC_ARROW, 0);
+  }
+
+  // Track that we talked to cedric
+  if (
+    event.name === "conversationDidEnd" &&
+    event.npc.conversation === "cedric"
+  ) {
+    fogOwlState.hadFirstConversation = true;
+    world.hideEntities(CEDRIC_ARROW);
+  }
+
+  // Manage visibility of mission computer arrow
+  if (
+    event.name === "playerDidInteract" &&
+    event.target.name === "mission_computer"
+  ) {
+    fogOwlState.hasSeenMissionComputer = true;
+    world.hideEntities(MISSION_COMPUTER_ARROW);
+  } else if (
+    !fogOwlState.hasSeenMissionComputer &&
+    fogOwlState.hadFirstConversation
+  ) {
+    world.showEntities(MISSION_COMPUTER_ARROW, 0);
+  }
+
+  // Persist our level's state after this invocation of our event handler
+  world.setState(fogOwlState);
+};
+```
