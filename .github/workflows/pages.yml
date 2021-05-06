@@ -22,7 +22,5 @@ jobs:
       - name: Run Vuepress build
         run: npm run build
 
-      - name: Deploy for GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy GH Pages
+        run: git checkout gh-pages && git add . && git commit -m "website deploy" && git push origin gh-pages
