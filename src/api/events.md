@@ -286,7 +286,7 @@ This is an underlying TwilioQuest object that exposes a lot of functionality abo
 
 This is an underlying TwilioQuest object that exposes a lot of functionality about how we store and manage levels. This API may not be stable.
 
-### [DEPRECATED] levelsDirectoryPath,
+### levelsDirectoryPath <Badge text="deprecated" type="warning"/>
 
 - type: `string`
 

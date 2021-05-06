@@ -32,13 +32,11 @@ This is a list of the user input fields a player will have access to. They're us
 
 This represents a set of information used to created inputs for the player to pass information into a validator. Some of these tags map to underlying HTML values, others do not.
 
-### show_ide
+### show_ide <Badge text="deprecated" type="warning"/>
 
 - type: `Boolean`
 
 Should this objective allow the player to open up the integrated QuestIDE.
-
-> ⚠️ DEPRECATION WARNING ⚠️: This property is going to be removed in future versions of the game.
 
 ### rewards
 

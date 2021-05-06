@@ -1,1 +1,1 @@
-# Items API
+# Item Configuration
