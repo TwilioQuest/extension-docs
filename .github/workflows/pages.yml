@@ -22,8 +22,7 @@ jobs:
       - name: Run Vuepress build
         run: npm run build
 
-      - name: Commit changes for GitHub Pages
-        uses: EndBug/add-and-commit@v7
+      - name: Deploy for GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          author_name: github-actions
+          github_token: ${{ secrets.GITHUB_TOKEN }}
