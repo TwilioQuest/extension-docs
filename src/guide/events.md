@@ -1,3 +1,0 @@
-# Event Scripting
-
-TODO

@@ -1,3 +1,0 @@
-# Creating Objectives
-
-TODO

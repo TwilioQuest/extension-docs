@@ -1,3 +1,0 @@
-# Distributing Your Extension
-
-TODO
