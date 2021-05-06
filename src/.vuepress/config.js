@@ -72,6 +72,8 @@ module.exports = {
             'events',
             'objects',
             'custom_objects',
+            'conversations',
+            'items'
           ]
         }
       ],
