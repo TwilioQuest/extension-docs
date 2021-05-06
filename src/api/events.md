@@ -342,4 +342,20 @@ Check if a specified objective has been completed by the player.
 
 ### getCurrentMapName
 
+- type: `function`
+
+Get the name of the currently loaded map.
+
+#### Return
+
+- `String`: the currently loaded map name
+
 ### getCurrentLevelName
+
+- type: `function`
+
+Get the name of the currently loaded level. This can be useful for reusable logic you want to share across levels.
+
+#### Return
+
+- `String`: the currently loaded level name
