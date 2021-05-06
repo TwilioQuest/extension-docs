@@ -130,7 +130,7 @@ Triggers after a player attempts to hack an objective they've already completed 
 - `name (String)`: `"objectiveCompletedAgain"`
 - `objective (String)`: The name of the objective that was passed.
 
-## World
+## World API
 
 ### getState
 
@@ -249,23 +249,96 @@ Clear a player's progress of the specified objective. This is useful if you need
 
 ### entityService
 
+- type: `EntityService`
+
+This is an underlying TwilioQuest service that exposes a lot of functionality about how we store and manage entities. The above entity manipulation methods should be preferred. This API may not be as stable.
+
 ### getContext
+
+- type: `function`
+
+This allows access to the entirety of TwilioQuest's internal data storage. This contains a lot of powerful information. However, this is an internal API and the particular data contract you get is not guaranteed to stay stable.
+
+#### Parameters
+
+- `property (String)`: name of the context value being queried
 
 ### setContext
 
+- type: `function`
+
+This allows access to the entirety of TwilioQuest's internal data storage. This contains a lot of powerful information. However, this is an internal API and the particular data contract you get is not guaranteed to stay stable.
+
+#### Parameters
+
+- `property (String)`: name of the context value being set
+- `payload (Object)`: any arbitrary state data to persist
+
 ### emitter
+
+- type: `EventEmitter`
+
+This is an underlying TwilioQuest object that exposes a lot of functionality about how we store and manage data. This API may not be stable.
 
 ### levelLoader
 
-### levelsDirectoryPath,
+- type: `LevelLoader`
+
+This is an underlying TwilioQuest object that exposes a lot of functionality about how we store and manage levels. This API may not be stable.
+
+### [DEPRECATED] levelsDirectoryPath,
+
+- type: `string`
+
+This is a string that provides a file path to the old bundled content in TwilioQuest. This has been replaced by the new extensions APIs and will be removed in future updates.
 
 ### screenShake
 
+- type: `function`
+
+This function triggers a screen shake visual effect.
+
+#### Parameters
+
+- `amount (Number)`: Value for strength and duration of the screen shake effect. Low integers are generally recommended.
+- `timeout (Number)`: Delay in milliseconds before the conversation starts playing.
+
 ### enableTransitionAreas
+
+- type: `function`
+
+Enable (allow them to trigger events) all TransitionAreas that match the provided key or filter function.
+
+#### Parameters
+
+- `keyOrFilter (String | Function)`: If this property is a string it will match all entities that have a `key` prop of the same value. If this is a function it will work as a filter function with the signature: `({ instance, collections, group, guid }) => Boolean`.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
 
 ### disableTransitionAreas
 
+- type: `function`
+
+Disable (prevent them from triggering events) all TransitionAreas that match the provided key or filter function.
+
+#### Parameters
+
+- `keyOrFilter (String | Function)`: If this property is a string it will match all entities that have a `key` prop of the same value. If this is a function it will work as a filter function with the signature: `({ instance, collections, group, guid }) => Boolean`.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
 ### isObjectiveCompleted
+
+- type: `function`
+
+Check if a specified objective has been completed by the player.
+
+#### Parameters
+
+- `objective (String)`: The name of the objective being queried.
+- `mission (String)`: The name of the mission that owns this objective. This parameter is optional, if not provided it will default to the current mission.
+
+#### Return
+
+- `Boolean`: returns true if the objective is completed
 
 ### getCurrentMapName
 
