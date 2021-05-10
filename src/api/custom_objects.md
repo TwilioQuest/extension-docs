@@ -204,15 +204,14 @@ This property exports a function that allows this object to affect changes on th
 
 This is a reference to the runtime instance of the object that this config is describing. This object is passed in as the first parameter to `events` and `render` callbacks.
 
-#### Self Methods
-
-- `setState` - persist state for this object's instance.
-- `playAnimation` - trigger an animation for this object
-- `hide` - make the object not visible nor collideable, but still present in the world
-- `show` - ensure the object is visible
-- `destroy` - remove the object from the game
-- `showOutline` - show an outline effect around this object
-- `hideOutline` - remove any outline effect around this object
+- `state (Object)` - a reference to the current state
+- `setState (Function)` - persist state for this object's instance, and re-render the object
+- `playAnimation (Function)` - trigger an animation for this object
+- `hide (Function)` - make the object not visible nor collideable, but still present in the world
+- `show (Function)` - ensure the object is visible
+- `destroy (Function)` - remove the object from the game
+- `showOutline (Function)` - show an outline effect around this object
+- `hideOutline (Function)` - remove any outline effect around this object
 
 ### Example
 
