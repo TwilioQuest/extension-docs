@@ -117,11 +117,11 @@ If this property is set to `false` this object will not be parsed as a collision
 
 Conventionally used to identify this object shape. Has no other special properties.
 
-## Object Configuration Directory
+## Object Configuration File
 
-### Object Configuration File
+This is the `config.json` that lives at the root of an object directory. It contains all sorts of metadata about how the object functions.
 
-#### animations
+### animations
 
 This is a key/value map object listing all animations this entity can perform.
 
@@ -131,7 +131,7 @@ This is a key/value map object listing all animations this entity can perform.
   - `frameRate (Number)` - this is how fast the animation should play. If your animation has 4 frames and this number is set to 4, you will play the entire animation in 1 second.
   - `layer (String)` - which sprite frame layer does this animation apply to. This defaults to the main sprite layer if omitted.
 
-#### spritesheets
+### spritesheets
 
 Key/object map listing all unique spritesheets this entity needs to load.
 
@@ -141,7 +141,7 @@ Key/object map listing all unique spritesheets this entity needs to load.
   - `height (NUmber)` - height of each frame in pixels
 - `type (String)` - Defaults to `"spritesheet"`. If set to `"image"` the specified asset will be loaded as a single image.
 
-#### properties
+### properties
 
 Other general configuration properties for objects.
 
@@ -156,12 +156,98 @@ Other general configuration properties for objects.
   - `minIdleTime (Number)` - The minimum amount of time that must elapse before an animation will play in milliseconds.
   - `maxIdleTime (Number)` - The maximum amount of time that can elapse before an animation will play in milliseconds.
 
-#### state
+### state
 
-#### events
+This is an arbitrary object that you can store any information needed to make your object function. These values should be assigned values in the `events` section below and then used to update your object in the `render` section.
 
-#### render
+The values set here will be the default state of this object.
 
-### Tileset Images
+### events
 
-### icon.png
+This object has an optional key for each event to which this object subscribes. The event list is on [the Event Scripting API docs](/api/events.html#event-object). Any event in this section can be subscribed to with the appropriate handler. A handler key should be the event name preceded with `on` and lower camel cased.
+
+For example, to subscribe to the `mapDidLoad` event and log out a message:
+
+```js
+{
+  events: {
+    onMapDidLoad: () => {
+      console.log("The map loaded!");
+    },
+  }
+}
+```
+
+Each event handler function is passed three parameters when invoked.
+
+1. `self` - this is a reference to the runtime instance of the object that this config is describing. [Self API is documented below.](#self)
+
+2. `event` - the event object for the triggered event, this can have different values as described in the [event docs](/api/events.html#event-object).
+
+3. `world` - APIs that can [modify and access world data](/api/events.html#world-api)
+
+::: warning
+
+Be very careful modifying the world in an event handler. If you're trying to make persistent changes to the world, best practice is to only modify state here instead and change the world in `render`.
+
+:::
+
+### render
+
+This property exports a function that allows this object to affect changes on the world based on its current state. The function takes in two of the parameters documented above:
+
+1. `self` - this is a reference to the runtime instance of the object that this config is describing. [Self API is documented below.](#self)
+
+2. `world` - APIs that can [modify and access world data](/api/events.html#world-api)
+
+### self
+
+This is a reference to the runtime instance of the object that this config is describing. This object is passed in as the first parameter to `events` and `render` callbacks.
+
+#### Self Methods
+
+- `setState` - persist state for this object's instance.
+- `playAnimation` - trigger an animation for this object
+- `hide` - make the object not visible nor collideable, but still present in the world
+- `show` - ensure the object is visible
+- `destroy` - remove the object from the game
+- `showOutline` - show an outline effect around this object
+- `hideOutline` - remove any outline effect around this object
+
+### Example
+
+Here's an object example that hides itself after being interacted with and remains hidden whenever it gets reloaded.
+
+```js
+{
+  state: {
+    isHidden: false
+  },
+  events: {
+    onMapDidLoad: (self, event, world) => {
+      // load state saved for this object
+      const objectState = world.getState(`com.twilioquest.${self.key}`);
+
+      // convert saved state into our current object
+      self.setState(objetState);
+    },
+    onPlayerDidInteract: (self, event, world) => {
+      // set our state internally
+      self.setState({
+        isHidden: true
+      });
+    },
+  },
+  render: (self, world) => {
+    if (self.state.isHidden) {
+      // persist our state across loads
+      world.setState(`com.twilioquest.${self.key}`, {
+        isHidden: true
+      });
+
+      // hide our object
+      self.hide();
+    }
+  }
+}
+```
