@@ -73,7 +73,6 @@ module.exports = {
             'objects',
             'custom_objects',
             'conversations',
-            'items'
           ]
         }
       ],
