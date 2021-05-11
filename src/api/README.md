@@ -1,5 +1,5 @@
 # API Overview
 
-This is the documentation home for the ways to interact with TwilioQuest as a content author.
+This section of the documentation provides detailed specifications of the configuration options and programming interfaces that exist in the TwilioQuest content authoring tools. The left navigation provides a list of these interfaces for your reference.
 
-If you're looking for a specific API, check the side bar for your topic. If you're not sure where to start, check our [getting started guide](/guide).
+If you are new to creating TwilioQuest Extensions, we recommend that you start by reading through our [Guides section](../guide) first!
