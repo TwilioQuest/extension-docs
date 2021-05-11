@@ -1,5 +1,23 @@
 # NPC Conversations
 
+::: warning WIP ⚠️
+
+This guide is still a work in progress!
+
+:::
+
+## What is a conversation?
+
+- show a series of screenshots of conversation screens
+
+## Create a conversation file
+
+### Conversation HTML
+
+- see api docs
+
+## Link a conversation file in Tiled
+
 ## Voice Overs
 
 Voice over files are pulled from the `vo` directory inside of a level's `conversations` directory.
