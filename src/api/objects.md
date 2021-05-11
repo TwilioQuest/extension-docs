@@ -2,30 +2,34 @@
 
 The `twilioquest-base` extension ships with some default scripted objects. We use these in official TwilioQuest content or provide them as helpful building blocks.
 
-These objects are members of the `TwilioQuestObjects` tileset.
+These objects are members of the `TwilioQuestObjects` tileset. These objects come with a bundle of pre-configured properties and custom scripting. Several of the objects below have many types. These are the same object's with functionality, but with different sprites or orientations.
 
 ## Objects
 
-### chest-red
+### Chests
 
-### chest-autumn
+Chests in TwilioQuest are used to present objectives to your players that are optional. They do not block a player's progress. These are best suited for enrichment lessons that are not central to the mission's content.
 
-### chest-blue
+#### Properties
 
-### chest-green
+- `objectiveName (String)` - This is the objective name that this chest should display in a Hack Interface when a player interacts with the chest.
 
-### chest-light-blue
+- types: `chest-red`, `chest-autumn`, `chest-blue`, `chest-green`, `chest-light-blue`, `chest-light-red`, `chest-pink`, `chest-purple`, `chest-red-orange`
 
-### chest-light-red
+### Laser Barriers
 
-### chest-pink
+Laser Barriers in TwilioQuest are conventionally used to present objectives to your players that are required. They prevent a player from progressing into the space they block off. Once their linked objective is completed they will open. These are best suited to be paired with a terminal that will launch essential educational content.
 
-### chest-purple
+#### Properties
 
-### chest-red-orange
+- `objectiveName (String)` - This is the objective name that should cause this laser barrier to open after it's completed.
 
-### laser-horizontal
+- types: `laser-horizontal`, `laser-vertical`
 
-### laser-vertical
+### Terminals
 
-### terminal
+Terminals are the conventional location for launching an objective that will open up a laser barrier.
+
+- `objectiveName (String)` - This is the objective name that this terminal should display in a Hack Interface when a player interacts with the terminal.
+
+- types: `terminal`
