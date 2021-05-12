@@ -1,4 +1,4 @@
-# NPC Conversations
+# Non Player Characters
 
 ::: warning WIP ⚠️
 
@@ -6,17 +6,81 @@ This guide is still a work in progress!
 
 :::
 
+## What is an NPC?
+
+Non Player Characters (NPCs) are entities that represent other characters besides the player that live in The Cloud. These characters have their own avatars and names to give them unique identities. The primary way that players interact with NPCs is via conversations.
+
+![NPC Cedric standing in the Fog Owl cockpit](./images/npc_cedric_fog_owl.png)
+
 ## What is a conversation?
 
-- show a series of screenshots of conversation screens
+When a player uses their interaction button on an NPC a conversation screen will launch. It looks like the screen below, and has a few different parts. An entire conversation is composed of one or more of these screens in a row.
 
-## Create a conversation file
+![NPC Cedric first conversation screen](./images/npc_cedric_conversation_screen.png)
+
+### Portrait
+
+This is a close up picture of the NPC that is participating in the conversation. This image can be adjusted throughout the conversation to change the character's emotions.
+
+### Statement
+
+The text that the NPC is speaking to the player. This text uses HTML so it can be styled with highlights, italics, or other styles. If a character has voice over files, they'll be narrated to the player alongside this text.
+
+### Display Name
+
+This is the name of the NPC your player is conversing with. This is not tied to a specific conversation file, so it can change when a conversation is launched if needed.
+
+### Reponses
+
+This is a list of options the player receives for how they'd like to respond to the NPC they're talking to. When the player chooses a response, a new conversation screen displays and the conversation continues. Responses can be chosen by clicking or pressing the corresponding number.
+
+### Response
+
+Every individual response is best constructed as a short line of text from the perspective of the player speaking.
+
+### End Conversation Response
+
+At the end of every conversation screen's responses, an `<end conversation>` response option is appended. If this option is chosen then the conversation will be terminated.
+
+## Creating an NPC and conversation
+
+NPCs have a couple major components.
+
+- the Tiled Object
+- their conversation files
+
+### Placing an NPC in TwilioQuest
+
+::: warning WIP ⚠️
+
+Update this heading section with appropriate links and short summary.
+
+:::
+
+This section should likely link to other places
+
+- the Tiled section should explain how to place objects like an NPC
+- the Built In Objects section of the API should explain the parts of an NPC
+
+### Create a conversation file
+
+The name of this file base name is important. Conventionally, we title these after the name of the NPC that will speak the file. If an NPC has more than one conversation file, we'd called them something like `cedric_welcome` and `cedric_congratulations`.
 
 ### Conversation HTML
 
 - see api docs
 
-## Link a conversation file in Tiled
+### Playing a conversation
+
+There are a couple different ways to launch into a conversation.
+
+#### Link a conversation file in Tiled
+
+- conversation property
+
+#### Use the world API to dynamically converse
+
+- world.startConversation
 
 ## Voice Overs
 

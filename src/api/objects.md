@@ -4,7 +4,7 @@ The `twilioquest-base` extension ships with some default scripted objects. We us
 
 These objects are members of the `TwilioQuestObjects` tileset. These objects come with a bundle of pre-configured properties and custom scripting. Several of the objects below have many types. These are the same object's with functionality, but with different sprites or orientations.
 
-## Objects
+## TwilioQuestObjects
 
 ### Chests
 
@@ -33,3 +33,38 @@ Terminals are the conventional location for launching an objective that will ope
 - `objectiveName (String)` - This is the objective name that this terminal should display in a Hack Interface when a player interacts with the terminal.
 
 - types: `terminal`
+
+## Legacy Objects
+
+These objects are created in Tiled differently than the new object format above. As time progresses, they'll be migrated to that new format.
+
+### Transition Areas
+
+- key
+
+These trigger events when they're entered and exited by a player
+
+### Exits
+
+- level name
+- map name
+
+These could be replaced by transition areas?
+
+### Player Entry Points
+
+- key
+
+### Non Player Characters (NPCs)
+
+- conversation
+
+### Tile Objects
+
+This infomration might belong in a guide?
+
+### Generic Objects
+
+This information might belong in a guide?
+
+These are sometimes useful to do things like create an arbitrary region that triggers a piece of interaction text.
