@@ -44,31 +44,23 @@ At the end of every conversation screen's responses, an `<end conversation>` res
 
 ## Creating an NPC and conversation
 
-NPCs have a couple major components.
+There are two main aspects to creating an NPC that a player interacts with in TwilioQuest, the object itself and its conversation file(s).
 
-- the Tiled Object
-- their conversation files
+### Creating the NPC object
 
-### Placing an NPC in TwilioQuest
+An NPC object is a [built-in TwilioQuest object](/api/objects.html#non-player-characters-npcs) with a special property that corresponds to a conversation name.
 
-::: warning WIP ⚠️
-
-Update this heading section with appropriate links and short summary.
-
-:::
-
-This section should likely link to other places
-
-- the Tiled section should explain how to place objects like an NPC
-- the Built In Objects section of the API should explain the parts of an NPC
+An NPC object can be placed into a level of TwilioQuest like any other game object. Check out the [guide on map editing](/guide/maps.html) to learn more.
 
 ### Create a conversation file
+
+The conversation file contains all of the information needed to describe the sequences of conversation screens a player will navigate through while talking to an NPC.
 
 The name of this file base name is important. Conventionally, we title these after the name of the NPC that will speak the file. If an NPC has more than one conversation file, we'd called them something like `cedric_welcome` and `cedric_congratulations`.
 
 ### Conversation HTML
 
-- see api docs
+TwilioQuest conversations are created using [Conversation HTML](/api/conversations.html#conversation-html). Conversation HTML is made of a variety of tags that describe a conversation screen. If you look at the list of [conversation tags](/api/conversations.html#conversation-tags) in the API documentation you'll see they correspond to the sections of [the conversation screen above](/guide/npcs.html#what-is-a-conversation).
 
 ### Playing a conversation
 
@@ -76,11 +68,11 @@ There are a couple different ways to launch into a conversation.
 
 #### Link a conversation file in Tiled
 
-- conversation property
+Use the `conversation` property of an [NPC object](/api/objects.html#non-player-characters-npcs) in Tiled and set it to the basename of the conversation file you want to play when a player interacts with that NPC.
 
 #### Use the world API to dynamically converse
 
-- world.startConversation
+You can dynamically play conversations using the [startConversation](/api/events.html#startconversation) function on the world API inside of a custom object or events.js file.
 
 ## Voice Overs
 
