@@ -64,12 +64,34 @@ In the example above, objectives 1, 2, and 3 each build on the previous one, and
 
 One way you might lay out a level to contain these objectives would be a linear path to complete the first three objectives, followed by a branching course to potentially complete the final two.
 
-
+![mission layout example](./images/objective_layout.png)
 
 ## Creating a new level folder
 
-Copy an existing one!
+At the time of this writing, the best way to create a new level is to **copy the level folder** of an existing level. This will copy all the map and tileset configuration you will need to effectively create a new level. The example level folder [in the template repo](https://github.com/TwilioQuest/twilioquest-extension-template/tree/main/levels/vr_mission_template) is a good one to use. It contains all the necessary files you will need to create a level. After doing this, your new level folder should look something like this:
+
+```
+my_extension/
+└── levels/
+    ├── the_level_you_copied/
+    └── your_new_level_folder/
+        ├── maps/
+        │   ├── default.json
+        ├── objectives/
+        │   └── example_objective/
+        │       ├── objective.json
+        │       ├── description.md
+        │       ├── walkthrough.md
+        │       └── validator.js
+        ├── events.js
+        └── level.json
+```
 
 ## Configuring and building your level
 
-Go over how to poke at the level.json, and then link to guides on specific topics.
+After creating your new level folder, open the `level.json` file at the root of the new level folder. This configuration file contains the metadata for your new level. A full reference for this file [can be found here](../api/levels), but here are a few properties you should make sure to change:
+
+* `title`: The human-readable name for your level - it will show up as the title text for either the navigation interface or VR mission computer.
+* `description`: The player will see this detail text if they select your level in either the nav interface or VR mission computer.
+* `is_mission`: This boolean flag indicates whether or not your level will be displayed in the VR mission computer.
+
