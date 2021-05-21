@@ -342,3 +342,16 @@ module.exports = {
 ```
 
 Now we can set the property `objectiveName` on any of our laser barriers to change which objective it will open for.
+
+### Some other boilerplate required properties
+
+```js
+module.exports = {
+  properties: {
+    sprite: {
+      useGidAsDefaultFrameIndex: true,
+      layers: [],
+    },
+  },
+};
+```
