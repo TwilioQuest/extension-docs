@@ -253,12 +253,27 @@ We have a problem now though, when you close and re-open TwilioQuest the barrier
 
 We're going to take advantage of objects' `state` and `render` properties to reference persisted data across loads.
 
+### Creating initial state
+
+The `state` property of a `config.js` file should have the default values you want this object to start with.
+
 ```js
 module.exports = {
   state: {
     // closed, opening, open
     animation: "closed",
   },
+};
+```
+
+Our laser barrier will have an `animation` property that we'll start with the string `"closed"` and will change it to `"opening"` and `"open"` later on.
+
+### Modifying state in response to events
+
+Now that we have a starting state, we want to change it dynamically in response to events that happen while playing. We're going to use the `onMapDidLoad` and `onObjectiveCompleted` events again. Instead of immediately playing animations, we'll use [self.setState](/api/custom_objects.html#object-configuration-file) instead.
+
+```js
+module.exports = {
   events: {
     onMapDidLoad: (self, event, world) => {
       if (world.isObjectiveCompleted("our_custom_objecitve")) {
@@ -275,6 +290,15 @@ module.exports = {
       }
     },
   },
+};
+```
+
+### Render our object based on current state
+
+TwilioQuest will call our object's `render` function after an object's state changes. Here is where we want to play appropriate animations or set appropriate frames.
+
+```js
+module.exports = {
   render: (self, world) => {
     switch (self.state.animation) {
       case "closed":
@@ -345,12 +369,100 @@ Now we can set the property `objectiveName` on any of our laser barriers to chan
 
 ### Some other boilerplate required properties
 
+The `properties` section of the custom object config contains some other information about how TwilioQuest should build your object.
+
+We need to tell TwilioQuest to use the spritesheet we created further above, and we'll use the first frame in the spritesheet as our default one.
+
 ```js
 module.exports = {
   properties: {
     sprite: {
-      useGidAsDefaultFrameIndex: true,
+      spriteSheet: "twilioquest_base_laserBarrierHorizontal",
+      defaultFrameIndex: 0,
+      // We'll not use this feature, so we should turn it off
+      useGidAsDefaultFrameIndex: false,
+      // We don't need any layered sprites for the laser barrier
       layers: [],
+    },
+  },
+};
+```
+
+## Our final custom object config
+
+This is our final laser barrier object config after we put together all the property chunks we built in this guide.
+
+`objects/laser_barrier/icon.png`
+
+![laser barrier icon](./images/custom_object_icon.png)
+
+`objects/laser_barrier/twilioquest_laser_horizontal.png`
+
+![laser barrier spritsheet](./images/twilioquest_laser_horizontal.png)
+
+`objects/laser_barrier/config.js`
+
+```js
+module.exports = {
+  state: {
+    // closed, opening, open
+    animation: "closed",
+  },
+  events: {
+    onMapDidLoad: (self, event, world) => {
+      if (world.isObjectiveCompleted(self.objectiveName)) {
+        self.setState({
+          animation: "open",
+        });
+      }
+    },
+    onObjectiveCompleted: (self, event) => {
+      if (event.objective === self.objectiveName) {
+        self.setState({
+          animation: "opening",
+        });
+      }
+    },
+  },
+  render: (self, world) => {
+    switch (self.state.animation) {
+      case "closed":
+        self.playAnimation("idle");
+        break;
+      case "opening":
+        self.playAnimation("open").then(() => {
+          self.setState({
+            animation: "open",
+          });
+        });
+        break;
+      case "open":
+        self.sprite.frame = 0;
+        break;
+    }
+  },
+  properties: {
+    sprite: {
+      spriteSheet: "twilioquest_base_laserBarrierHorizontal",
+      defaultFrameIndex: 0,
+      // We'll not use this feature, so we should turn it off
+      useGidAsDefaultFrameIndex: false,
+      // We don't need any layered sprites for the laser barrier
+      layers: [],
+    },
+  },
+  animations: {
+    close: {
+      frames: [0, 1, 2, 3, 4, 5, 6, 7],
+      frameRate: 8,
+    },
+    idle: {
+      frames: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      frameRate: 10,
+    },
+    open: {
+      frames: [20, 21, 22, 23, 24, 25, 26, 27],
+      frameRate: 8,
     },
   },
 };
