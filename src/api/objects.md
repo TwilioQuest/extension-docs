@@ -53,7 +53,12 @@ These could be replaced by transition areas?
 
 ### Player Entry Points
 
+By convention, these points names are formatted like so `player_entryX` where `X` is a unique identifier (usually an incrementing number).
+
+Each map should have at least one `player_entry1` entry point. This is where TwilioQuest will default to if no specific player entry point is provided when a map is loaded.
+
 - key
+- initialFacing
 
 ### Non Player Characters (NPCs)
 
