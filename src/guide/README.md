@@ -5,9 +5,18 @@ lang: en-US
 ---
 
 # Getting Started
+
 **TwilioQuest Extensions** allow you to build educational RPG adventures for players to enjoy in [TwilioQuest](https://www.twilio.com/quest). You can create [new levels](levels), new [code challenges](objectives) for players to overcome, and [new characters](npcs) for players to meet on their journey. You can also [override and extend](architecture) existing content with your own embellishments.
 
 We can't wait to see what you build in TwilioQuest!
+
+## Video walkthrough
+
+We cover most of the information in this guide in more in our content authoring video below.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O-CQURZWHSc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The docs on this page are still filled with helpful step-by-step instructions and images. It can be helpful to reference them when you need a refresher!
 
 ## Enabling extensions in the game
 
@@ -47,7 +56,7 @@ your-extensions-folder/
    └─ package.json
 ```
 
-Creating a new extension requires creating a new subfolder under your extensions folder that contains at least a `package.json` file. You *could* create your extension folder from scratch, but we don't recommend that you do so. We have created a [template repository on GitHub](https://github.com/TwilioQuest/twilioquest-extension-template) that we suggest you use as a starting point.
+Creating a new extension requires creating a new subfolder under your extensions folder that contains at least a `package.json` file. You _could_ create your extension folder from scratch, but we don't recommend that you do so. We have created a [template repository on GitHub](https://github.com/TwilioQuest/twilioquest-extension-template) that we suggest you use as a starting point.
 
 To create your own copy of this starter code to host on GitHub (recommended!), click the green "Use this template" button.
 
@@ -56,6 +65,7 @@ To create your own copy of this starter code to host on GitHub (recommended!), c
 Follow the prompts to create your own project [based on our template repo](https://github.com/TwilioQuest/twilioquest-extension-template/generate).
 
 ## Working on your extension locally
+
 When you've created your own copy of this template repo, [clone your new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) into the extensions folder you specified in the game client when you enabled extensions.
 
 ```bash
@@ -79,14 +89,15 @@ The template extension has a simple VR training level created for you to referen
 ![VR training sim mission](./images/vr_mission_computer.png)
 
 ## Getting help & reporting bugs
+
 To ask the developer community for help, you can post a question in our [community forums](https://community.twilio.com/twilioquest) or join the `#extension-dev` channel on our [Discord server](https://twil.io/tq-discord). While there is no formal support channel for extension development, you may find other like-minded community members ready to help with the problem you've encountered.
 
 If you feel you have found a bug in the authoring tools, the channels above are also the right place to report it. Please try and include as much detail about the problem as you can before posting, including:
 
-* What task are you trying to accomplish?
-* What have you tried in order to accomplish this task?
-* What happens when you try to accomplish the task?
-* What did you expect to happen, but did not happen?
+- What task are you trying to accomplish?
+- What have you tried in order to accomplish this task?
+- What happens when you try to accomplish the task?
+- What did you expect to happen, but did not happen?
 
 Answering these questions in advance when you ask for help will maximize the chances that someone from the community can effectively assist you.
 
