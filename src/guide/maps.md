@@ -44,13 +44,13 @@ Objects are important for accomplishing the various dynamic parts of TwilioQuest
 
 Objects live within a special type of layer called an "object layer". Generally, each TwilioQuest map has a single object layer where every object lives. This layer is conventionally called `Objects`.
 
-Both [built-in objects](api/objects.html) and [custom objects](guide/custom_objects.html) can be added to this layer. They will have properties that can be tweaked for different effects depending on the object.
+Both [built-in objects](/api/objects.html) and [custom objects](guide/custom_objects.html) can be added to this layer. They will have properties that can be tweaked for different effects depending on the object.
 
 These are a few important built-in objects that essentially every map will use:
 
-- [Player Entry Point](api/objects.html#player-entry-points) - controls player spawn point
-- [Terminal](api/objects.html#terminals) - launches an objective for the player to complete
-- [Laser Barrier](api/objects.html#laser-barriers) - blocks a player's progression until a specific objective is completed
-- [Exit](api/objects.html#exits) - transports a player between maps, you'll at least need one to take your player back to the Fog Owl after they play your mission.
+- [Player Entry Point](/api/objects.html#player-entry-points) - controls player spawn point
+- [Terminal](/api/objects.html#terminals) - launches an objective for the player to complete
+- [Laser Barrier](/api/objects.html#laser-barriers) - blocks a player's progression until a specific objective is completed
+- [Exit](/api/objects.html#exits) - transports a player between maps, you'll at least need one to take your player back to the Fog Owl after they play your mission.
 
 Tiled docs on [working with objects](https://doc.mapeditor.org/en/stable/manual/objects/) and [editing properties of objects](https://doc.mapeditor.org/en/stable/manual/custom-properties/).
