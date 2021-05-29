@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link rel="preload" href="/extension-docs/assets/css/0.styles.a221b2e8.css" as="style"><link rel="preload" href="/extension-docs/assets/js/app.ca96f595.js" as="script"><link rel="preload" href="/extension-docs/assets/js/2.fd243e3f.js" as="script"><link rel="preload" href="/extension-docs/assets/js/15.892ac1c6.js" as="script"><link rel="preload" href="/extension-docs/assets/js/26.bc58dd07.js" as="script"><link rel="prefetch" href="/extension-docs/assets/js/10.85fdfb47.js"><link rel="prefetch" href="/extension-docs/assets/js/11.684115fc.js"><link rel="prefetch" href="/extension-docs/assets/js/12.4f5ddf23.js"><link rel="prefetch" href="/extension-docs/assets/js/13.61603454.js"><link rel="prefetch" href="/extension-docs/assets/js/14.61dc16af.js"><link rel="prefetch" href="/extension-docs/assets/js/16.2f2b8759.js"><link rel="prefetch" href="/extension-docs/assets/js/17.167d7af2.js"><link rel="prefetch" href="/extension-docs/assets/js/18.15844322.js"><link rel="prefetch" href="/extension-docs/assets/js/19.8c8dc4c0.js"><link rel="prefetch" href="/extension-docs/assets/js/20.796e9226.js"><link rel="prefetch" href="/extension-docs/assets/js/21.aed71532.js"><link rel="prefetch" href="/extension-docs/assets/js/22.bcdd230f.js"><link rel="prefetch" href="/extension-docs/assets/js/23.c67789f3.js"><link rel="prefetch" href="/extension-docs/assets/js/24.a3355511.js"><link rel="prefetch" href="/extension-docs/assets/js/25.6796b8c4.js"><link rel="prefetch" href="/extension-docs/assets/js/27.df97af14.js"><link rel="prefetch" href="/extension-docs/assets/js/3.850aa211.js"><link rel="prefetch" href="/extension-docs/assets/js/4.763cced2.js"><link rel="prefetch" href="/extension-docs/assets/js/5.a480bc38.js"><link rel="prefetch" href="/extension-docs/assets/js/6.f1c75625.js"><link rel="prefetch" href="/extension-docs/assets/js/7.0ede63ba.js"><link rel="prefetch" href="/extension-docs/assets/js/8.ea3664ab.js"><link rel="prefetch" href="/extension-docs/assets/js/9.124662f3.js">
+    <link rel="preload" href="/extension-docs/assets/css/0.styles.a221b2e8.css" as="style"><link rel="preload" href="/extension-docs/assets/js/app.91c9853d.js" as="script"><link rel="preload" href="/extension-docs/assets/js/2.fd243e3f.js" as="script"><link rel="preload" href="/extension-docs/assets/js/15.892ac1c6.js" as="script"><link rel="preload" href="/extension-docs/assets/js/26.254f9137.js" as="script"><link rel="prefetch" href="/extension-docs/assets/js/10.c274ca5a.js"><link rel="prefetch" href="/extension-docs/assets/js/11.684115fc.js"><link rel="prefetch" href="/extension-docs/assets/js/12.4f5ddf23.js"><link rel="prefetch" href="/extension-docs/assets/js/13.61603454.js"><link rel="prefetch" href="/extension-docs/assets/js/14.61dc16af.js"><link rel="prefetch" href="/extension-docs/assets/js/16.2f2b8759.js"><link rel="prefetch" href="/extension-docs/assets/js/17.167d7af2.js"><link rel="prefetch" href="/extension-docs/assets/js/18.15844322.js"><link rel="prefetch" href="/extension-docs/assets/js/19.52927ccf.js"><link rel="prefetch" href="/extension-docs/assets/js/20.1563e2e0.js"><link rel="prefetch" href="/extension-docs/assets/js/21.4e03b6a7.js"><link rel="prefetch" href="/extension-docs/assets/js/22.6e89efbf.js"><link rel="prefetch" href="/extension-docs/assets/js/23.143a33e3.js"><link rel="prefetch" href="/extension-docs/assets/js/24.5b6b82a7.js"><link rel="prefetch" href="/extension-docs/assets/js/25.dd5bfb19.js"><link rel="prefetch" href="/extension-docs/assets/js/27.df97af14.js"><link rel="prefetch" href="/extension-docs/assets/js/3.ef41aaf4.js"><link rel="prefetch" href="/extension-docs/assets/js/4.9c3d6252.js"><link rel="prefetch" href="/extension-docs/assets/js/5.0673701e.js"><link rel="prefetch" href="/extension-docs/assets/js/6.f1c75625.js"><link rel="prefetch" href="/extension-docs/assets/js/7.0ede63ba.js"><link rel="prefetch" href="/extension-docs/assets/js/8.ea3664ab.js"><link rel="prefetch" href="/extension-docs/assets/js/9.42b36313.js">
     <link rel="stylesheet" href="/extension-docs/assets/css/0.styles.a221b2e8.css">
   </head>
   <body>
@@ -113,7 +113,165 @@ module<span class="token punctuation">.</span><span class="token function-variab
   &lt;img src=&quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>avatar_url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot; alt=&quot;User's profile image&quot; /&gt;
   </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>This is an example validator that requests the path to a Python executable from the player, validates that it runs, and then stores it in an environment variable for use in future objectives.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> spawn <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;child_process&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">helper</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> pythonPath <span class="token punctuation">}</span> <span class="token operator">=</span> helper<span class="token punctuation">.</span>validationFields<span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;--version&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>isExecutableValid<span class="token punctuation">,</span> errorMessage<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">await</span> helper<span class="token punctuation">.</span><span class="token function">isExecutableValid</span><span class="token punctuation">(</span>
+      pythonPath<span class="token punctuation">,</span>
+      args
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isExecutableValid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span>errorMessage<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> pyv <span class="token operator">=</span> <span class="token function">spawn</span><span class="token punctuation">(</span>pythonPath<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> versionString <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+
+    pyv<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      versionString <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Python 2 prints version information to stderr.</span>
+    <span class="token comment">// https://stackoverflow.com/questions/26028416/why-does-python-print-version-info-to-stderr</span>
+    <span class="token comment">// We want to capture this in case users mistakenly try</span>
+    <span class="token comment">// to use Python 2.</span>
+    pyv<span class="token punctuation">.</span>stderr<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      versionString <span class="token operator">+=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>data<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    pyv<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;close&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">code<span class="token punctuation">,</span> signal</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>code <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">[</span>version<span class="token punctuation">]</span> <span class="token operator">=</span> versionString<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(\d+\.\d+\.\d+)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> <span class="token punctuation">[</span>major<span class="token punctuation">,</span> minor<span class="token punctuation">,</span> patch<span class="token punctuation">]</span> <span class="token operator">=</span> version<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;.&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>major <span class="token operator">!==</span> <span class="token string">&quot;3&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+          It looks like you supplied &lt;span class=&quot;highlight&quot;&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>versionString<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/span&gt;. This mission requires &lt;span class=&quot;highlight&quot;&gt;Python 3&lt;/span&gt;.
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        helper<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span>
+          <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+          Awesome! Looks like you have this version installed: &lt;br/&gt;
+          &lt;span class=&quot;highlight&quot;&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>versionString<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/span&gt;. You have completed
+          the Trial of Installation!
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+          <span class="token punctuation">[</span><span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;PYTHON_EXE&quot;</span><span class="token punctuation">,</span> value<span class="token operator">:</span> pythonPath <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+          Welp... something went wrong when we tried to validate this Python
+          path. Double check the path and try again.
+
+          Error code: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>code<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+          Error signal: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>signal<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">&quot;NiceError&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+        Sorry! We couldn't validate your Python 3 installation. Please try
+        again.
+
+        </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>e<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+      </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>This is a validator that references the Python executable stored in an environment variable in the previous example validator. The validator reads a user's submitted Python script off of the file system using <code>jetpack</code>. It then uses the stored Python executable to test a user's submitted Python script.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> jetpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;fs-jetpack&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span>
+  NiceError<span class="token punctuation">,</span>
+  executeScript<span class="token punctuation">,</span>
+  checkSetup<span class="token punctuation">,</span>
+  executePythonCode<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;../../validation&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Append this python code to the user-created code - it will execute and</span>
+<span class="token comment">// validate that the user's script did what we expected</span>
+<span class="token keyword">const</span> <span class="token constant">VALIDATION_PYTHON_CODE</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+
+# Validate variables have been declared
+assert 'hail_friend' in locals(), &quot;The 'hail_friend' function was not created.&quot;
+
+# Assert hail_friend is a function
+assert callable(hail_friend), &quot;hail_friend is not a callable function.&quot;
+
+# Call the function so we can inspect stdout
+hail_friend()
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">helper</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> py <span class="token operator">=</span> helper<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">TQ_PYTHON_EXE</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> programPath <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>
+      helper<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">TQ_PYTHON_CODE_PATH</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;functions.py&quot;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Ensure prerequisite stuff is set up</span>
+    <span class="token keyword">await</span> <span class="token function">checkSetup</span><span class="token punctuation">(</span>py<span class="token punctuation">,</span> programPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Our test args</span>
+    <span class="token keyword">const</span> <span class="token constant">ARGS</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Execute the player's script to ensure it runs</span>
+    <span class="token keyword">const</span> stdout <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">executeScript</span><span class="token punctuation">(</span>py<span class="token punctuation">,</span> programPath<span class="token punctuation">,</span> <span class="token constant">ARGS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>stdout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Now, do an assertion check of the code with our own python code appended</span>
+    <span class="token keyword">const</span> code <span class="token operator">=</span> <span class="token keyword">await</span> jetpack<span class="token punctuation">.</span><span class="token function">readAsync</span><span class="token punctuation">(</span>programPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> testCode <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>code<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">\n\n</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">VALIDATION_PYTHON_CODE</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> testResult <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">executePythonCode</span><span class="token punctuation">(</span>helper<span class="token punctuation">.</span>env<span class="token punctuation">,</span> testCode<span class="token punctuation">,</span> <span class="token constant">ARGS</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>testResult<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>testResult<span class="token punctuation">.</span>exitCode <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>testResult<span class="token punctuation">.</span>stderr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;AssertionError:&quot;</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> assertionText <span class="token operator">=</span> testResult<span class="token punctuation">.</span>stderr<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&quot;AssertionError:&quot;</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NiceError</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+          Looks like there's a small problem. </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>assertionText<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NiceError</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+          We couldn't validate your Python code - please try again.
+        </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>testResult<span class="token punctuation">.</span>stdout<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;hail, friend&quot;</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// It should contain the text &quot;hail, friend&quot;</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NiceError</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+        We didn't see the requested string of text output by your
+        &lt;span class=&quot;highlight&quot;&gt;hail_friend&lt;/span&gt; function. It needs to print
+        the string &quot;Hail, friend!&quot;
+      </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// If we make it this far, we've passed validation</span>
+    helper<span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+      Well done! Not only did you put the &quot;fun&quot; in &quot;function&quot;, you also passed
+      the &lt;em&gt;Trial of Reusability&lt;/em&gt;.
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">&quot;NiceError&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      helper<span class="token punctuation">.</span><span class="token function">fail</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+        Sorry! We couldn't successfully run your Python script.
+      </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre></div></div></main></div><div class="global-ui"></div></div>
-    <script src="/extension-docs/assets/js/app.ca96f595.js" defer></script><script src="/extension-docs/assets/js/2.fd243e3f.js" defer></script><script src="/extension-docs/assets/js/15.892ac1c6.js" defer></script><script src="/extension-docs/assets/js/26.bc58dd07.js" defer></script>
+    <script src="/extension-docs/assets/js/app.91c9853d.js" defer></script><script src="/extension-docs/assets/js/2.fd243e3f.js" defer></script><script src="/extension-docs/assets/js/15.892ac1c6.js" defer></script><script src="/extension-docs/assets/js/26.254f9137.js" defer></script>
   </body>
 </html>
