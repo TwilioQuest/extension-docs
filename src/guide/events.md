@@ -84,7 +84,7 @@ module.exports = (event, world) => {
   }
 
   // Persist world state across event handler invocations
-  world.setState(WORLD_STATE_KEY);
+  world.setState(WORLD_STATE_KEY, worldState);
 };
 ```
 
