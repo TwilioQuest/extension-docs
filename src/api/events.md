@@ -161,12 +161,12 @@ Set a level state object for the corresponding key. This state is intended to be
 
 - type: `function`
 
-Start a specified conversation file with a provided NPC name.
+Start a specified conversation file with a given conversation portrait.
 
 #### Parameters
 
 - `conversation (String)`: A key representing a specific conversation file to be loaded.
-- `name (String)`: The name that shows up for the NPC speaking to the player.
+- `conversationAvatar (String)`: The conversation avatar file name - should be a file in the `images/conversations` folder of your extension. Some built-in avatar image names you can use (other than images in your own extension) are `cedricNeutral.png`, `cedricHappy.png`, `coreyNeutral.png`, etc.
 - `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
 
 ### showEntities
