@@ -89,6 +89,12 @@ Options:
 - key: `vr`<br/>
   options: none
 
+#### mission_icon
+
+- type: `String`
+
+The `filePath` of an image file used in the Mission Computer as an icon for this level. The file path is built relative to the top level extension `images` directory.
+
 ## Examples
 
 `/levels/fog_owl/level.json`
