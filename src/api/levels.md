@@ -89,7 +89,7 @@ Options:
 - key: `vr`<br/>
   options: none
 
-#### mission_icon
+### mission_icon
 
 - type: `String`
 
