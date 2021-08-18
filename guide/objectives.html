@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link rel="preload" href="/extension-docs/assets/css/0.styles.a221b2e8.css" as="style"><link rel="preload" href="/extension-docs/assets/js/app.c24b889a.js" as="script"><link rel="preload" href="/extension-docs/assets/js/2.fd243e3f.js" as="script"><link rel="preload" href="/extension-docs/assets/js/15.892ac1c6.js" as="script"><link rel="preload" href="/extension-docs/assets/js/26.254f9137.js" as="script"><link rel="prefetch" href="/extension-docs/assets/js/10.c274ca5a.js"><link rel="prefetch" href="/extension-docs/assets/js/11.684115fc.js"><link rel="prefetch" href="/extension-docs/assets/js/12.4f5ddf23.js"><link rel="prefetch" href="/extension-docs/assets/js/13.61603454.js"><link rel="prefetch" href="/extension-docs/assets/js/14.61dc16af.js"><link rel="prefetch" href="/extension-docs/assets/js/16.2f2b8759.js"><link rel="prefetch" href="/extension-docs/assets/js/17.167d7af2.js"><link rel="prefetch" href="/extension-docs/assets/js/18.15844322.js"><link rel="prefetch" href="/extension-docs/assets/js/19.1c3c4409.js"><link rel="prefetch" href="/extension-docs/assets/js/20.3d9f6639.js"><link rel="prefetch" href="/extension-docs/assets/js/21.4e03b6a7.js"><link rel="prefetch" href="/extension-docs/assets/js/22.6e89efbf.js"><link rel="prefetch" href="/extension-docs/assets/js/23.143a33e3.js"><link rel="prefetch" href="/extension-docs/assets/js/24.abd21806.js"><link rel="prefetch" href="/extension-docs/assets/js/25.dd5bfb19.js"><link rel="prefetch" href="/extension-docs/assets/js/27.df97af14.js"><link rel="prefetch" href="/extension-docs/assets/js/3.ef41aaf4.js"><link rel="prefetch" href="/extension-docs/assets/js/4.9c3d6252.js"><link rel="prefetch" href="/extension-docs/assets/js/5.0673701e.js"><link rel="prefetch" href="/extension-docs/assets/js/6.f1c75625.js"><link rel="prefetch" href="/extension-docs/assets/js/7.0ede63ba.js"><link rel="prefetch" href="/extension-docs/assets/js/8.ea3664ab.js"><link rel="prefetch" href="/extension-docs/assets/js/9.42b36313.js">
+    <link rel="preload" href="/extension-docs/assets/css/0.styles.a221b2e8.css" as="style"><link rel="preload" href="/extension-docs/assets/js/app.a1aa9166.js" as="script"><link rel="preload" href="/extension-docs/assets/js/2.fd243e3f.js" as="script"><link rel="preload" href="/extension-docs/assets/js/15.892ac1c6.js" as="script"><link rel="preload" href="/extension-docs/assets/js/26.8a307078.js" as="script"><link rel="prefetch" href="/extension-docs/assets/js/10.c274ca5a.js"><link rel="prefetch" href="/extension-docs/assets/js/11.684115fc.js"><link rel="prefetch" href="/extension-docs/assets/js/12.4f5ddf23.js"><link rel="prefetch" href="/extension-docs/assets/js/13.61603454.js"><link rel="prefetch" href="/extension-docs/assets/js/14.61dc16af.js"><link rel="prefetch" href="/extension-docs/assets/js/16.2f2b8759.js"><link rel="prefetch" href="/extension-docs/assets/js/17.167d7af2.js"><link rel="prefetch" href="/extension-docs/assets/js/18.15844322.js"><link rel="prefetch" href="/extension-docs/assets/js/19.1c3c4409.js"><link rel="prefetch" href="/extension-docs/assets/js/20.3d9f6639.js"><link rel="prefetch" href="/extension-docs/assets/js/21.4e03b6a7.js"><link rel="prefetch" href="/extension-docs/assets/js/22.6e89efbf.js"><link rel="prefetch" href="/extension-docs/assets/js/23.143a33e3.js"><link rel="prefetch" href="/extension-docs/assets/js/24.abd21806.js"><link rel="prefetch" href="/extension-docs/assets/js/25.dd5bfb19.js"><link rel="prefetch" href="/extension-docs/assets/js/27.df97af14.js"><link rel="prefetch" href="/extension-docs/assets/js/3.ef41aaf4.js"><link rel="prefetch" href="/extension-docs/assets/js/4.9c3d6252.js"><link rel="prefetch" href="/extension-docs/assets/js/5.0673701e.js"><link rel="prefetch" href="/extension-docs/assets/js/6.f1c75625.js"><link rel="prefetch" href="/extension-docs/assets/js/7.0ede63ba.js"><link rel="prefetch" href="/extension-docs/assets/js/8.ea3664ab.js"><link rel="prefetch" href="/extension-docs/assets/js/9.42b36313.js">
     <link rel="stylesheet" href="/extension-docs/assets/css/0.styles.a221b2e8.css">
   </head>
   <body>
@@ -271,7 +271,49 @@ module<span class="token punctuation">.</span><span class="token function-variab
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>Here is an example of an objective markdown file that uses a function inside of it's EJS template to source images relative to an extension.</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;%
+const path = require('path');
+const fileUrl = require('file-url');
+
+function getImageUrl(extRelativePath) {
+  try {
+    const imagePath = path.join(
+      context.extensions.directory,
+      'twilioquest-extension-template',
+      extRelativePath
+    );
+    return fileUrl(imagePath)
+  } catch (e) {
+    console.log('embedded image path not found:', path);
+    console.log(e);
+    // A default image that exists in the app bundle
+    return 'images/app/shield.png'; 
+  }
+}
+%&gt;
+
+# Example Objective
+
+&lt;div class=&quot;aside&quot;&gt;
+&lt;h3&gt;To-Do List&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;It's good to keep high level tasks here.&lt;/li&gt;
+  &lt;li&gt;Let players know when to click &lt;em&gt;HACK&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+Give players a little bit of information about what they need to do to hack past this objective. If you find yourself writing more than a few short paragraphs of text, it's likely your objective is too big!
+
+## Here's an embedded image from your extension's image folder
+
+![image help text](&lt;%= getImageUrl('images/conversations/ryan.jpg') %&gt;)
+
+## You can make sub headers with more information
+
+Some times you wan to talk about additional concepts beyond the high level goal that might help players accomplish the high level goal.
+
+Describe the final values for your player one last time. Then ask them to click the _HACK_ button.
 </code></pre></div></div></main></div><div class="global-ui"></div></div>
-    <script src="/extension-docs/assets/js/app.c24b889a.js" defer></script><script src="/extension-docs/assets/js/2.fd243e3f.js" defer></script><script src="/extension-docs/assets/js/15.892ac1c6.js" defer></script><script src="/extension-docs/assets/js/26.254f9137.js" defer></script>
+    <script src="/extension-docs/assets/js/app.a1aa9166.js" defer></script><script src="/extension-docs/assets/js/2.fd243e3f.js" defer></script><script src="/extension-docs/assets/js/15.892ac1c6.js" defer></script><script src="/extension-docs/assets/js/26.8a307078.js" defer></script>
   </body>
 </html>
