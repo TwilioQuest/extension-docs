@@ -273,3 +273,49 @@ module.exports = async (helper) => {
   }
 };
 ```
+
+Here is an example of an objective markdown file that uses a function inside of it's EJS template to source images relative to an extension.
+```
+<%
+const path = require('path');
+const fileUrl = require('file-url');
+
+function getImageUrl(extRelativePath) {
+  try {
+    const imagePath = path.join(
+      context.extensions.directory,
+      'twilioquest-extension-template',
+      extRelativePath
+    );
+    return fileUrl(imagePath)
+  } catch (e) {
+    console.log('embedded image path not found:', path);
+    console.log(e);
+    // A default image that exists in the app bundle
+    return 'images/app/shield.png'; 
+  }
+}
+%>
+
+# Example Objective
+
+<div class="aside">
+<h3>To-Do List</h3>
+<ul>
+  <li>It's good to keep high level tasks here.</li>
+  <li>Let players know when to click <em>HACK</em>.</li>
+</ul>
+</div>
+
+Give players a little bit of information about what they need to do to hack past this objective. If you find yourself writing more than a few short paragraphs of text, it's likely your objective is too big!
+
+## Here's an embedded image from your extension's image folder
+
+![image help text](<%= getImageUrl('images/conversations/ryan.jpg') %>)
+
+## You can make sub headers with more information
+
+Some times you wan to talk about additional concepts beyond the high level goal that might help players accomplish the high level goal.
+
+Describe the final values for your player one last time. Then ask them to click the _HACK_ button.
+```
