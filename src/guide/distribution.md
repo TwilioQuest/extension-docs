@@ -1,10 +1,5 @@
 # Distributing Your Extension
 
-::: warning WIP ⚠️
-
-The steps below will become available on 21/10/21.
-
-:::
 ### You are invited to share your TwilioQuest extensions on the TwilioQuest Extension Gallery! 
 *Note: This is currently limited to [Twilio Champions](www.twilio.com/champions) and [Twilio Field Operators](www.twilio.com/quest/students).* 
 
