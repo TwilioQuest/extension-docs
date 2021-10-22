@@ -8,6 +8,8 @@ This guide is still a work in progress!
 
 ## How to use Tiled
 
+![default tiled window example](./images/maps_tiled_default_layout.png)
+
 [Tiled](https://www.mapeditor.org/) is a complicated piece of open source software! It does a lot of powerful things, but there are a few main features you'll need to make use of authoring your first TwilioQuest mission.
 
 This video introduces the basics of editing tiles, objects, and layers in an older version of Tiled. Most of these features have been core to Tiled for a long time and should be similar to the latest version.
@@ -25,18 +27,70 @@ If you're looking to create a new map, we recommend that you copy the provided o
 :::
 
 ## Layers and Tiles
+Tiles are the core of how you'll build the static parts of a TwilioQuest map. In Tiled, these are placed within "tile layers", seen on the top right of the Tiled editor. These layers function similarly to layers in painting programs like Adobe Photoshop: tiles placed on the higher layers show up on top the tiles on the lower layers. You can select a layer, then click on a square on the map to place a tile, similar to drawing in similar painting programs.
 
-Tiles are the core of how you'll build the static parts of a TwilioQuest map. In Tiled, these are placed within "tile layers" using a variety of tools. These layers function similarly to layers in painting programs like Adobe Photoshop.
+![layer properties window](./images/maps_tiled_layers_and_tiles.png)
 
-Tiled docs on [working with layers](https://doc.mapeditor.org/en/stable/manual/layers/) and [editing tile layers](https://doc.mapeditor.org/en/stable/manual/editing-tile-layers/).
+::: tip
 
-Layers can have a few special properties that TwilioQuest will consume to treat them differently. These properties are:
+Read more on how to use Tiled in the official docs on [working with layers](https://doc.mapeditor.org/en/stable/manual/layers/) and [editing tile layers](https://doc.mapeditor.org/en/stable/manual/editing-tile-layers/).
 
-- `collision` - If this is set to true, then the tiles in this layer will prevent the player from passing through them. There is usually a main `Collision` tile layer with this property.
+:::
 
-- `hidden` - When set to true, this tile layer will not be rendered visually to the player. The `Collision` layer should have this property set as well.
+#### Placing Tiles
+Tiles are pictures that you can place in your map. Think of placing tiles like placing puzzle pieces onto a grid. The tiles that you place onto the grid will show up in your custom maps in TwilioQuest!
 
-- `useCollisionMasks` - This is a more advanced feature that will let the tiles in a tile layer use the Tiled Collision Editor to specify a custom collision box. This can be useful if tiles do not visually sit on the tile grid.
+To place a tile, follow these steps:
+
+1. In the Layers window on the top right of the Tiled editor, select a non-object layer (any layer with a grid icon). 
+2. Below, in the Tilesets window, select the "TwilioQuestTilesets" tab.
+3. Click on a tile in the resulting window below the tab. 
+4. On the grid, in the middle of the editor, click on a square.
+
+Ta-da! You've placed a tile in your level! Click on more squares to place more tiles.
+
+You might notice that some tiles will show up when you click on specific layers, and some tiles won't show up when you click on other layers. This is due to the way tile layers work, which is described in the next section.
+
+#### Default Template Layers and Characteristics.
+Tile layers handle how the tiles are displayed in TwilioQuest. The [TwilioQuest extension template](https://github.com/TwilioQuest/twilioquest-extension-template) provides Tiled maps in .json format. They come with six tile layers: 
+- **Collision**: Use this layer to place collision tiles. The player cannot walk through tiles placed on this layer.
+- **Top**: Use this layer to provide depth to your decorations on the Decoration 2 / Decoration layers. The player will walk behind the tiles placed on this layer. Great for placing walls with depth. 
+- **Objects**: The player, NPCs, and other interactable objects appear on this layer.
+- **Decoration 2 / Decoration**: Use these layers to decorate your map on top of the floor. The player will walk in front of the tiles placed on this layer. 
+- **Base**: Use this layer to create a floor for your map.
+
+Similar to other digital painting applications, the tiles placed in the higher layers will appear on top of the tiles in the lower layers. Use this knowledge to create custom maps with depth!
+
+If you need more layers, follow these steps:
+1. Right click in the white space in the Layers window on the top right of the editor.
+2. Click "New", then "Tile Layer".
+3. Type in the name of your new layer.
+4. Drag the layer up and down to reorganize the layer such that the tiles in your new layer will appear above or below tiles in other layers.
+
+#### Layer Properties
+Layers can have a few special properties that TwilioQuest will consume to treat them differently:
+
+- `collision (boolean)` - If this is set to true, then the tiles in this layer will prevent the player from passing through them. There is usually a main `Collision` tile layer with this property.
+
+- `hidden (boolean)` - When set to true, this tile layer will not be rendered visually to the player. The `Collision` layer should have this property set as well.
+
+- `useCollisionMasks (boolean)` - This is a more advanced feature that will let the tiles in a tile layer use the Tiled Collision Editor to specify a custom collision box. This can be useful if tiles do not visually sit on the tile grid.
+
+It is imperative to have a **collision layer** in your map with the `collision` and `hidden` properties set to `true`.
+
+To view the properties of a layer, click on the layer name in the layer window on the top right of the Tiled editor. The layer properties will then show on the left side of the editor.
+
+![layer properties window](./images/maps_tiled_layer_properties.png)
+
+To change the boolean value of a property, click on the checkbox next to the propery name. 
+
+To add a property to a layer, follow these steps:
+
+1. Right click on "Custom Properties"
+2. Select "Add Property"
+3. Type in the desired property name in the text box. Select "boolean" in the dropdown menu on the right.
+4. Click on the checkbox to set the boolean property to `true`; otherwise, it will be set to `false`.
+
 
 ## Objects and Properties
 
