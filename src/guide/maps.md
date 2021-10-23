@@ -45,7 +45,8 @@ To place a tile, follow these steps:
 1. In the Layers window on the top right of the Tiled editor, select a non-object layer (any layer with a grid icon). 
 2. Below, in the Tilesets window, select the "TwilioQuestTilesets" tab.
 3. Click on a tile in the resulting window below the tab. 
-4. On the grid, in the middle of the editor, click on a square.
+4. On the toolbar above the grid, select the Stamp Brush (stamp-looking button).
+5. On the grid, in the middle of the editor, click on a square.
 
 Ta-da! You've placed a tile in your level! Click on more squares to place more tiles.
 
@@ -96,15 +97,61 @@ To add a property to a layer, follow these steps:
 
 Objects are important for accomplishing the various dynamic parts of TwilioQuest. This includes things like non player characters, laser barriers, and more!
 
-Objects live within a special type of layer called an "object layer". Generally, each TwilioQuest map has a single object layer where every object lives. This layer is conventionally called `Objects`.
+Objects live within a special type of layer called an "object layer". Generally, each TwilioQuest map has a single object layer where every object lives. This layer is conventionally called **Objects**.
 
-Both [built-in objects](/api/objects.html) and [custom objects](guide/custom_objects.html) can be added to this layer. They will have properties that can be tweaked for different effects depending on the object.
+::: tip 
+
+For a more detailed guide, please refer to the Tiled docs on [working with objects](https://doc.mapeditor.org/en/stable/manual/objects/) and [editing properties of objects](https://doc.mapeditor.org/en/stable/manual/custom-properties/).
+
+:::
+
+### Object Types
+
+[Built-in objects](/api/objects.html) and [custom objects](guide/custom_objects.html) can be added to the **Objects** layer. They have properties that can be tweaked for different effects depending on the object.
+
+![built-in objects described below and displayed from left to right](./images/maps_tiled_builtin_objects.png)
 
 These are a few important built-in objects that essentially every map will use:
 
 - [Player Entry Point](/api/objects.html#player-entry-points) - controls player spawn point
 - [Terminal](/api/objects.html#terminals) - launches an objective for the player to complete
+- [Chest](/api/objects.html#chests) - same as terminal, good for optional missions
 - [Laser Barrier](/api/objects.html#laser-barriers) - blocks a player's progression until a specific objective is completed
 - [Exit](/api/objects.html#exits) - transports a player between maps, you'll at least need one to take your player back to the Fog Owl after they play your mission.
 
-Tiled docs on [working with objects](https://doc.mapeditor.org/en/stable/manual/objects/) and [editing properties of objects](https://doc.mapeditor.org/en/stable/manual/custom-properties/).
+### Placing Built-in Objects
+
+The steps to placing built-in objects are similar to that of placing tiles:
+
+1. In the Tilesets window on the top right of the Tiled editor, select the **TwilioQuestObjects** or **TwilioQuestNPCs** tab.
+2. Click on the object you would like to add to your custom map.
+3. In the Layers window below, select the **Objects** layer.
+4. On the toolbar on the top of the grid, select the Insert Tile button (the picture-frame button).
+5. On the grid, click on the location you would like to place your new object.
+
+Once the objects are placed, you can change its properties in the Properties window on the left. You can view the properties by clicking on the built-in object links above this section.
+
+### Placing Entry Points and Exits
+The easiest way to place entry points and exists is to copy and paste the existing ones in the template maps, then modifying their properties as described in the next section.
+
+To create a new entry point or exit from scratch, follow these steps:
+
+1. On the toolbar on the top of the grid, select the **Insert Rectangle** button for exits or **Insert Point** for entry points.
+2. On the grid below, click on the location you would like to place your new entry point or exit.
+3. Edit its properties as described below and documented in the links for the built-in objects list above. 
+
+### Editing Object Placement and Properties 
+To edit an object's placement and properties, follow these steps:
+
+1. In the Layers window on the bottom right of the Tiled editor, select the **Objects** layer.
+2. On the toolbar on the top of the grid, select the **Select Objects** button (the button with two pink rectangles and one dotted rectangle).
+3. Click on the desired object on the grid below.
+4. To change its physical appearance:
+    - To move the object, click and drag the object to the desired location.
+    - To scale the object, click on the desired straight arrows and drag.
+    - To rotate the object, click on the object again, then click and drag the curved arrows.
+    - Depending on the object, the object may not necessarily be re-scaled or rotated properly in-game.
+5. To change its property, observe them in the Properties window on the left and change them accordingly.
+    - To add a property, right click on the **Custom Properties** label and select **Add Property**.
+
+
