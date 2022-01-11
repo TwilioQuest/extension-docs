@@ -91,6 +91,13 @@ module.exports = {
           ],
         },
       ],
+      "/examples/": [
+        {
+          title: "Examples",
+          collapsable: false,
+          children: ["", "check-player-holding-item"],
+        },
+      ],
     },
   },
 
