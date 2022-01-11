@@ -1,5 +1,7 @@
 # How to check if a player is holding an item
 
+_Published: 1/11/2022 for TQ Version: 3.2.4_
+
 TwilioQuest has a central "context" that holds most of the data the game uses. You can see a lot of this data saved in your [save filed `config.json`](https://community.twilio.com/twilioquest/discussion/51/troubleshooting-tips).
 
 There are `getContext` and `setContext` functions attached to the [world](/api/events.html#world-api) object that allow you to get and set these values. Look at this save file to get an idea of the properties you can use.
