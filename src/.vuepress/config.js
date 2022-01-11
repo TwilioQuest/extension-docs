@@ -2,13 +2,13 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'TwilioQuest Extensions',
+  title: "TwilioQuest Extensions",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: 'Get started building new adventures in TwilioQuest.',
+  description: "Get started building new adventures in TwilioQuest.",
 
-  base: '/extension-docs/',
+  base: "/extension-docs/",
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -16,10 +16,21 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', { name: 'theme-color', content: '#F22F46' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "https://www.twilio.com/quest/next/favicon.png"}]
+    ["meta", { name: "theme-color", content: "#F22F46" }],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    [
+      "meta",
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "https://www.twilio.com/quest/next/favicon.png",
+      },
+    ],
   ],
 
   /**
@@ -28,65 +39,66 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
+    repo: "",
     editLinks: false,
-    docsDir: '',
-    editLinkText: '',
+    docsDir: "",
+    editLinkText: "",
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: "Guide",
+        link: "/guide/",
       },
       {
-        text: 'API Reference',
-        link: '/api/'
-      }
+        text: "API Reference",
+        link: "/api/",
+      },
+      {
+        text: "Examples",
+        link: "/examples/",
+      },
     ],
     sidebar: {
-      '/guide/': [
+      "/guide/": [
         {
-          title: 'Guide',
+          title: "Guide",
           collapsable: false,
           children: [
-            '',
-            'architecture',
-            'levels',
-            'maps',
-            'objectives',
-            'npcs',
-            'events',
-            'custom_objects',
-            'distribution',
-          ]
-        }
+            "",
+            "architecture",
+            "levels",
+            "maps",
+            "objectives",
+            "npcs",
+            "events",
+            "custom_objects",
+            "distribution",
+          ],
+        },
       ],
-      '/api/': [
+      "/api/": [
         {
-          title: 'API Reference',
+          title: "API Reference",
           collapsable: false,
           children: [
-            '',
-            'levels',
-            'objectives',
-            'events',
-            'objects',
-            'custom_objects',
-            'conversations',
-          ]
-        }
+            "",
+            "levels",
+            "objectives",
+            "events",
+            "objects",
+            "custom_objects",
+            "conversations",
+          ],
+        },
       ],
-    }
+    },
   },
 
-  // Distribution 
-  dest: 'docs',
+  // Distribution
+  dest: "docs",
 
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
-  plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-  ]
-}
+  plugins: ["@vuepress/plugin-back-to-top", "@vuepress/plugin-medium-zoom"],
+};
