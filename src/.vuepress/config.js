@@ -95,7 +95,12 @@ module.exports = {
         {
           title: "Examples",
           collapsable: false,
-          children: ["", "check-player-holding-item", "load-relative-images"],
+          children: [
+            "",
+            "check-player-holding-item",
+            "load-relative-images",
+            "slideshow-extension",
+          ],
         },
       ],
     },

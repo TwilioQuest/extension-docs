@@ -360,6 +360,155 @@ Get the name of the currently loaded level. This can be useful for reusable logi
 
 - `String`: the currently loaded level name
 
+### showOverlayComponent
+
+- type: `function`
+
+Displays the specified component type over the rest of the game much like the Nav Map or the Hack Interface.
+
+[Example usage of the iframe component.](/examples/slideshow-extension)
+
+#### Parameters
+
+- `overlayComponent (String|object)`: This is a key that represents which component will be opened. An object can be passed instead which allows more control of the component.
+- `timeout (Number)`: Optional delay in milliseconds before the conversation starts playing. This value defaults to 0.
+
+#### Overlay Components
+
+- `navMap` - Shows the planet selection screen.
+  - **props:**
+    - none
+- `fogOwlFlying` - Shows the Fog Owl flying on a loading screen with stars in the background.
+  - **props:**
+    - `fadeIn` - should this component fade in or start at full transparency. defaults to `false`.
+- `iframe` - Shows a component with an HTML iframe element. This can be used to display a URL inside of TwilioQuest.
+  - **props:**
+    - `url` - string that is the URL the iframe will be opened to
+    - `backgroundColor` - HTML color string for the background of the iframe
+    - `fontColor` - HTML color string for the color of the iframe
+    - `borderless` - Should this iframe element have a border
+
+### disablePlayerMovement
+
+- type: `function`
+
+After this function is invoked, the player can no longer move. This will stay true until [enablePlayerMovement](#enablePlayerMovement) is invoked.
+
+### enablePlayerMovement
+
+- type: `function`
+
+After this function is invoked, the player can move. This is mainly useful after [disablePlayerMovement](#disablePlayerMovement) has been invoked.
+
+### useTool
+
+- type: `function`
+
+Plays the "useTool" animation in the direction that the player is currently facing. Also triggers a `playerUsedTool` event with a `toolId` property in it's payload equal to the provided toolId. This animation will play until [stopUsingTool](#stopUsingTool) is invoked.
+
+#### Parameters
+
+- `toolId (String)`: A string that will used as part of the `playerUsedTool` payload.
+
+### stopUsingTool
+
+- type: `function`
+
+Stops the current `useTool` animation running on the player. Also triggers the `playerStoppedUsingTool` event with the last used `toolId` attached to the payload.
+
+### useTool
+
+- type: `function`
+
+Plays the "useTool" animation in the direction that the player is currently facing. Also triggers a `playerUsedTool` event with a `toolId` property in it's payload equal to the provided toolId. This animation will play until [stopUsingTool](#stopUsingTool) is invoked.
+
+#### Parameters
+
+- `toolId (String)`: A string that will used as part of the `playerUsedTool` payload.
+
+### tweenCameraToPosition
+
+- type: `function`
+
+[Tweens](https://phaser.io/docs/2.6.2/Phaser.Tween.html) (moves) the camera to the location specified by the given position.
+
+#### Parameters
+
+- `position (Object)`: An object with an `x` and `y` property.
+- `tweenConfig (Object)`: An object of [Phaser tween](https://phaser.io/docs/2.6.2/Phaser.Tween.html) configurations that control how this Tween functions. Some sensible defaults are provided if this parameter is omitted.
+
+#### Return
+
+- `Promise`: This promise resolves once the tween completes
+
+### tweenCameraToPlayer
+
+- type: `function`
+
+[Tweens](https://phaser.io/docs/2.6.2/Phaser.Tween.html) (moves) the camera to the current location of the Player.
+
+#### Parameters
+
+- `tweenConfig (Object)`: An object of [Phaser tween](https://phaser.io/docs/2.6.2/Phaser.Tween.html) configurations that control how this Tween functions. Some sensible defaults are provided if this parameter is omitted.
+
+#### Return
+
+- `Promise`: This promise resolves once the tween completes
+
+### wait
+
+- type: `function`
+
+This is a convenience function that creates a promise which resolves after the specified amount of time.
+
+#### Parameters
+
+- `timeout (Number)`: length of time in milliseconds
+
+#### Return
+
+- `Promise`: This promise resolves once the time has elapsed
+
+### updateQuestStatus
+
+- type: `function`
+
+Update the current quest status of the provided level.
+
+#### Parameters
+
+- `levelName (String)`: key of the level's status
+- `title (String)`: title of the quest status message
+- `description (String)`: body of the quest status message
+- `complete (Boolean)`: should this quest be marked as completed
+- `ignoreLevelInfo (Boolean)`: should the default values in the level.json be used
+
+#### Return
+
+- `Promise`: This promise resolves once the time has elapsed
+
+### playBackgroundMusic
+
+- type: `function`
+
+Play the background music track of the provided name
+
+#### Parameters
+
+- `trackName (String)`: basename of the track to play
+
+### warp
+
+- type: `function`
+
+Teleport the player to the specified location
+
+#### Parameters
+
+- `levelName (String)`: key of the level to teleport the player to
+- `playerEntryPoint (String)`: name of the player entry point the player should be warped to
+- `levelMapName (String)`: basename of the map that the player should be warped to
+
 ## Examples
 
 ```js
