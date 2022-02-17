@@ -38,6 +38,12 @@ Layers can have a few special properties that TwilioQuest will consume to treat 
 
 - `useCollisionMasks` - This is a more advanced feature that will let the tiles in a tile layer use the Tiled Collision Editor to specify a custom collision box. This can be useful if tiles do not visually sit on the tile grid.
 
+## Tilesets
+
+This is a short video documenting how to create a Tileset in Tiled from a tilesheet image.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x8v5j5kWY8k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Objects and Properties
 
 Objects are important for accomplishing the various dynamic parts of TwilioQuest. This includes things like non player characters, laser barriers, and more!
