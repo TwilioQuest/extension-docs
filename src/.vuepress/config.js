@@ -100,6 +100,7 @@ module.exports = {
             "check-player-holding-item",
             "load-relative-images",
             "slideshow-extension",
+            "lockable-doors",
           ],
         },
       ],
