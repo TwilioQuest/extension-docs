@@ -509,6 +509,26 @@ Teleport the player to the specified location
 - `playerEntryPoint (String)`: name of the player entry point the player should be warped to
 - `levelMapName (String)`: basename of the map that the player should be warped to
 
+### grantItems
+
+- type: `function`
+
+Add a list of items to the player's inventory.
+
+#### Parameters
+
+- `grantedItems (Array)`: array of item keys (strings) to grant to the player
+
+### removeItems
+
+- type: `function`
+
+Remove a list of items from the player's inventory.
+
+#### Parameters
+
+- `removedItems (Array)`: array of item keys (strings) to ensure are not in the player's inventory
+
 ## Examples
 
 ```js
