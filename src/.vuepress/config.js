@@ -73,6 +73,7 @@ module.exports = {
             "events",
             "custom_objects",
             "distribution",
+            "back_date_tq_version",
           ],
         },
       ],
