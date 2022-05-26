@@ -27,3 +27,9 @@ Learn [how to locate your save file](./how_locate_save_file).
 TwilioQuest stores "user data" on your computer while running. This includes your save file, different versions of the game, logs and more. This guide will help you remove all of this data.
 
 Learn [how to entirely uninstall TwiloQuest](./how_entirely_uninstall_twilioquest).
+
+## Find your Unique Player Identifier (GUID)
+
+Every player of TwilioQuest has a [Globally Unique Identifier (GUID)](http://guid.one/guid). We use this identifier to show your accomplishments on leaderboards, improve the game, and more. The TwilioQuest team might ask you for this GUID to debug server-related features of TwilioQuest. This guide will show you how to find your GUID.
+
+Learn [how to find your Player GUID](./find_player_guid).
