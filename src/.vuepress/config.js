@@ -68,6 +68,7 @@ module.exports = {
             "architecture",
             "levels",
             "maps",
+            "style-guide",
             "objectives",
             "npcs",
             "events",

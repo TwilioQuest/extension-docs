@@ -1,4 +1,4 @@
-# Using TwilioQuest Tilesets: Style Guide
+# Using Tilesets: A Style Guide
 
 The `twilioquest-base` extension provides a large variety of tileable art assets that can be used to build new maps within TwilioQuest. The majority of
 these art assets are mapped to a grid-based layout in `TwilioQuestTileset.png`.
