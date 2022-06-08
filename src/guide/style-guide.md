@@ -58,23 +58,23 @@ wall tile types in order to use them appropriately. A typical set of wall tiles 
 
 These tiles have been broken down into 5 different uses, sorted by colour.
 
-**Green (1)**: These tiles are the **main wall tiles** you will be using to create your rooms. Like the ground tiles shown in the previous section titled
+**<ColorText color="#2ECC71">Green (1):</ColorText>** These tiles are the **main wall tiles** you will be using to create your rooms. Like the ground tiles shown in the previous section titled
 “Repeating Tiles”, these walls are made into a 3x3 layout with a mix of corner, middle edge, and center tiles.
 
-**Red (2)**: These tiles are similar to the green tiles, however they have one key difference: they have **shadows along the sides to be placed as inner
+**<ColorText color="#E74C3C">Red (2):</ColorText>** These tiles are similar to the green tiles, however they have one key difference: they have **shadows along the sides to be placed as inner
 corner walls**. Here are two examples of where they would be used:
 
 ![example of shadowed wall tiles](./images/innercornerwalls.png)
 
-**Yellow (3)**: These are the “**top wall**” tiles. These tiles are to be placed above any of the green, red, blue or purple tiles. Some variations of
+**<ColorText color="#F39C12">Yellow (3):</ColorText>** These are the “**top wall**” tiles. These tiles are to be placed above any of the green, red, blue or purple tiles. Some variations of
 these tiles are helpful for indicating where multiple walls may intersect.
 
-**Blue (4)**: The **single-column blue tile is used wherever a vertical wall ends**. If you are creating a gap in the vertical wall for the player to pass
+**<ColorText color="#3498DB">Blue (4):</ColorText>** The **single-column blue tile is used wherever a vertical wall ends**. If you are creating a gap in the vertical wall for the player to pass
 through, it is important to remember to leave enough room to place these blue column tiles. Here is an example below of correct usage:
 
 ![example of correct and incorrect vertical wall usage](./images/bluetileusage.png)
 
-**Purple (5)**: The purple tiles are to indicate any extra tiles you might find placed with the wall tiles. Some wall tiles, like in this grouping, have
+**<ColorText color="#8E44AD">Purple (5):</ColorText>** The purple tiles are to indicate any extra tiles you might find placed with the wall tiles. Some wall tiles, like in this grouping, have
 columns to help add some additional detailing to the walls. Other common wall tiles you might find are cracked bricks, windows, etc.
 
 ### Common Guidelines to Follow
@@ -96,24 +96,24 @@ the example below.
 
 ![same mockup of a room with 4 doors as above, but some tiles are colour-coded](./images/doorcolours_Animation_1_1.png)
 
-**Red (1)**: There are a variety of door styles to choose from with both opening and closing animations. Some are single-tile wide while others are two
+**<ColorText color="#E74C3C">Red (1):</ColorText>** There are a variety of door styles to choose from with both opening and closing animations. Some are single-tile wide while others are two
 tiles wide. If you would like to flip one of the door assets to create double doors, please note that you must manually flip them as we currently do not
 support Tiled’s flip function in TwilioQuest. The doors in the example above also have “locked” and “unlocked” displays if you choose to tie them into
 your gameplay.
 
-**Green (2)**: Each door is accompanied by a surrounding door frame. They help to break up the space between the door and the walls, and the left/right
+**<ColorText color="#2ECC71">Green (2):</ColorText>** Each door is accompanied by a surrounding door frame. They help to break up the space between the door and the walls, and the left/right
 facing door frames act as visual cues for side doors you cannot see in this perspective. The side door frames can be layered over the player character
 to give the illusion that they are passing through them.
 
-**Blue (3)**: These arch tiles are meant to be placed on any wall over a door. Like the side door frames, they are key visual cues for doorways that
+**<ColorText color="#3498DB">Blue (3):</ColorText>** These arch tiles are meant to be placed on any wall over a door. Like the side door frames, they are key visual cues for doorways that
 might not be as apparent on the side or bottom of walls. There are different coloured versions of these arch tiles to work with different wall types. It
 is important that these arch tiles match with the colour on top of the walls, and not with the doors or door frame.
 
-**Purple (4)**: In cases where a north-facing doorway transports the player to an entirely separate map, you can use these fading tiles in place of or
+**<ColorText color="#8E44AD">Purple (4):</ColorText>** In cases where a north-facing doorway transports the player to an entirely separate map, you can use these fading tiles in place of or
 behind a doorway. It is important to make sure that these tiles are placed on a lower layer even when there is a door, since they will be visible when
 the door opening animation occurs.
 
-**Yellow (5)**: These floor arrows are an optional accessory and can act as an additional visual cue for a doorway entrance to the player, if you choose
+**<ColorText color="#F39C12">Yellow (5):</ColorText>** These floor arrows are an optional accessory and can act as an additional visual cue for a doorway entrance to the player, if you choose
 to use them.
 
 ## Shadows
