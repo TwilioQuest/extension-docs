@@ -1,12 +1,203 @@
 # Creating Objectives
 
-::: warning WIP ⚠️
+## What are objectives?
 
-This guide is still a work in progress!
+Objectives are the challenges players are presented with when opening terminals in TwilioQuest. Their purpose is to teach something new and reward users for successful completion. An `Objectives` folder is used to group all of the objectives for a particular level together.
 
-:::
+```
+my_extension/
+├── levels/
+    └── my_new_level/
+        └── objectives/
+            └── example_objective/
+                ├── objective.json
+                ├── description.md
+                ├── walkthrough.md
+                └── validator.js
+```
+
+For more information on creating and configuring levels, see the [Creating New Levels](https://twilioquest.github.io/extension-docs/guide/levels.html) guide!
+
+
+As you can see in the directory tree above, each objective is broken up into several files:
+- [description.md](#description-md-file),
+- [example.js](#example-js-file),
+- [objective.json](#objective-json-file),
+- [validator.js](#validator-js-file),
+- and [walkthrough.md](#walkthrough-md-file)
+
+It's this combination of files that make up your objective.
+
+## [Description.md](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/description.md) File
+
+The description file covers the lore, requirements, a brief explanation of what the user needs to do, and some examples for how to complete the objective. Changes you make here will be reflected in the 'Objective' tab of the terminal.
+
+## [Example.js](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/example.js) File
+
+The example file is what players will see the first time they open up the in-game code editor by clicking the _</> Show Code Editor_ button.
+
+## [Objective.json](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/objective.json) File
+
+The objective file contains the information for the 'Overview' tab, which includes the fields: title, description, validation_fields, show_ide, and rewards.
+
+For more details, check out the [API Reference](https://twilioquest.github.io/extension-docs/api/objectives.html#objective-configuration)
+
+## [Validator.js](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/validator.js) File
+
+The validator file exports a function that is responsible for checking whether or not the user has successfully completed your objective after clicking the _HACK_ button.
+
+## [Walkthrough.md](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/walkthrough.md) File
+
+The walkthrough file is where you'd put step by step instructions on how to complete the objective, as well as link to any external learning resources you feel would be helpful. Changes here can be seen under the 'Help' tab of the terminal.
+
+## Balanced Brackets Example
+
+This objective is found in the 'power generation' area of the _Raid the Ducktypium Forge_ mission.
+
+### Description.md
+
+```md
+# Balance Brackets
+
+<div class="aside">
+<h3>Requirements</h3>
+<ul>
+  <li>Create a function called `balanceBrackets`.</li>
+  <li>This function receives an array of brackets (brackets being any of the following "[", "]", "(", ")", "{", "}").</li>
+  <li>Return true if the brackets are balanced, and false otherwise (the examples explain it best).</li>
+  <li>Return true if the input array is empty.</li>
+  <li>Once you're done, press <em>HACK</em>.</li>
+</ul>
+</div>
+
+It looks like this part of the forge is responsible for generating power and distributing it to the rest of the system. This particular terminal ensures the power generator has a balanced fuel mixture.
+
+Create a function `balanceBrackets` that accepts an array of brackets. This function should return a boolean (true/false) based on whether or not the array of brackets is balanced.
+
+<br>
 
 ## Examples
+
+- `["{", "}”]` -> `true`
+- `[]` -> `true`
+- `["{", "[", "}”]` -> `false`
+- `["(", ")”, "[", "(", "{", "}”, ")”, "]”]` -> `true`
+
+<br>
+
+Once you've writen this function, click the _HACK_ button!
+```
+
+![Objective.md Example Image](./images/objective_descriptionmd_config_example.png)
+
+### Example.js
+
+```js
+function balanceBrackets(array) {
+    // TODO: check for balanced brackets!
+  }
+  
+  console.log("Test case 1:");
+  console.log(balanceBrackets(["{", "}"]));
+  
+  console.log("Test case 2:");
+  console.log(balanceBrackets([]));
+  
+  console.log("Test case 3:");
+  console.log(balanceBrackets(["{", "[", "}"]));
+  
+  console.log("Test case 4:");
+  console.log(balanceBrackets(["(", ")", "[", "(", "{", "}", ")", "]"]));
+```
+
+![Example.js Example Image](./images/objective_examplejs_config_example.png)
+
+### Objective.json
+
+```json
+{
+    "title": "Balance Brackets",
+    "description": "Ensure a combination of brackets is balanced in an array.",
+    "validation_fields": [
+      {
+        "name": "prompt",
+        "type": "prompt",
+        "placeholder": "",
+        "label": "Click HACK to test your function."
+      }
+    ],
+    "show_ide": true,
+    "rewards": {
+      "xp": 100
+    }
+  }
+  
+```
+
+![Objective.json Example Image](./images/objective_objectivejson_config_example.png)
+
+### Validator.js
+
+```js
+const assert = require("assert");
+
+const assertTestCase = (testFunction) => (input, expected) => {
+  const testResult = testFunction(input);
+
+  assert.strictEqual(
+    testResult,
+    expected,
+    `Expected "${expected}" from input "${input}", but received "${testResult}".`
+  );
+};
+
+module.exports = async function (helper) {
+  let context;
+
+  try {
+    context = await helper.pullVarsFromQuestIdeUserCodeLocalScope(
+      ["balanceBrackets"],
+      "balance-brackets"
+    );
+
+    assert(
+      context.balanceBrackets,
+      "The function balanceBrackets is not defined!"
+    );
+
+    const test = assertTestCase(context.balanceBrackets);
+
+    test(["{", "}"], true);
+    test([], true);
+    test(["{", "[", "}"], false);
+    test(["(", ")", "[", "(", "{", "}", ")", "]"], true);
+  } catch (err) {
+    helper.fail(err);
+    return;
+  }
+
+  helper.success("You did it!");
+};
+```
+
+### Walkthrough.md
+
+```md
+# Helpful Resources
+
+Here are some links that could help you with hacking this terminal. Be sure to stop by the [TwilioQuest Discord](https://twil.io/tq-discord) if you need further assistance!
+
+## Links
+
+- [Array.push on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+- [Array.pop on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+- [If statements on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+- [Switch statements on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+```
+
+![Walkthrough.md Example Image](./images/objective_walkthroughmd_config_example.png)
+
+## Validator Examples
 
 This is a validator that uses an asynchronous network request to check if a user entered a valid GitHub username in an objective.
 
