@@ -16,37 +16,37 @@ my_extension/
                 └── validator.js
 ```
 
-For more information on creating and configuring levels, see the [Creating New Levels](https://twilioquest.github.io/extension-docs/guide/levels.html) guide!
+For more information on creating and configuring levels, see the [Creating New Levels](./levels.md) guide!
 
 
 As you can see in the directory tree above, each objective is broken up into several files:
-- [description.md](#description-md-file),
-- [example.js](#example-js-file),
-- [objective.json](#objective-json-file),
-- [validator.js](#validator-js-file),
-- and [walkthrough.md](#walkthrough-md-file)
+- [description.md](#description-md),
+- [example.js](#example-js),
+- [objective.json](#objective-json),
+- [validator.js](#validator-js),
+- and [walkthrough.md](#walkthrough-md)
 
 It's this combination of files that make up your objective.
 
-## [Description.md](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/description.md) File
+## [Description.md](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/description.md)
 
 The description file covers the lore, requirements, a brief explanation of what the user needs to do, and some examples for how to complete the objective. Changes you make here will be reflected in the 'Objective' tab of the terminal.
 
-## [Example.js](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/example.js) File
+## [Example.js](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/example.js)
 
 The example file is what players will see the first time they open up the in-game code editor by clicking the _</> Show Code Editor_ button.
 
-## [Objective.json](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/objective.json) File
+## [Objective.json](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/objective.json)
 
 The objective file contains the information for the 'Overview' tab, which includes the fields: title, description, validation_fields, show_ide, and rewards.
 
 For more details, check out the [API Reference](https://twilioquest.github.io/extension-docs/api/objectives.html#objective-configuration)
 
-## [Validator.js](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/validator.js) File
+## [Validator.js](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/validator.js)
 
 The validator file exports a function that is responsible for checking whether or not the user has successfully completed your objective after clicking the _HACK_ button.
 
-## [Walkthrough.md](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/walkthrough.md) File
+## [Walkthrough.md](https://github.com/TwilioQuest/twilioquest-base/blob/62e9e22d2195005b6d8fc6e8a69558a3817a60b6/levels/challenge-questions/objectives/balance-brackets/walkthrough.md)
 
 The walkthrough file is where you'd put step by step instructions on how to complete the objective, as well as link to any external learning resources you feel would be helpful. Changes here can be seen under the 'Help' tab of the terminal.
 
