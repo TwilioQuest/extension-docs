@@ -10,6 +10,12 @@ This guide is still a work in progress!
 
 [Tiled](https://www.mapeditor.org/) is a complicated piece of open source software! It does a lot of powerful things, but there are a few main features you'll need to make use of authoring your first TwilioQuest mission.
 
+:::tip
+
+TwilioQuest supports Tiled version 1.8.X of lower. The 1.9.X Tiled update changed file formats so is currently incompatible.
+
+:::
+
 This video introduces the basics of editing tiles, objects, and layers in an older version of Tiled. Most of these features have been core to Tiled for a long time and should be similar to the latest version.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZwaomOYGuYo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
