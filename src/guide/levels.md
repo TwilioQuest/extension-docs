@@ -25,7 +25,7 @@ Which kind of level you choose to build comes down to the type of content you ar
 
 | Story Levels | VR Training Levels |
 | ------------ | ------------------ |
-| Are you looking to create a **story-driven experience** with characters, event scripting, and an immersive environment? You should create a level that appears as a **location within The Cloud** on the navigation map interface. |  Are you more interested in creating **task-focused exercises** that don't require extensive story elements? You chould create a mission that uses the **VR Training** tiles and motif, and just focus on creating chests and laser barriers. |
+| Are you looking to create a **story-driven experience** with characters, event scripting, and an immersive environment? You should create a level that appears as a **location within The Cloud** on the navigation map interface. |  Are you more interested in creating **task-focused exercises** that don't require extensive story elements? You should create a mission that uses the **VR Training** tiles and motif, and just focus on creating chests and laser barriers. |
 
 We recommend that most content authors start by creating a VR Training mission, since creating event scripts, NPC conversations, and maps with detailed visuals can be quite time consuming when you are just getting started. To see how you can make your level show up in either the navigation interface or VR training computer, read the configuration section at the bottom of this guide.
 
@@ -36,7 +36,7 @@ Before you start hacking on a level, we recommend you begin in a document and co
 You can make other levels a **prerequisite** before a given level can be loaded in the VR training mission computer. Refer to the level configuration guide below to see how this works.
 :::
 
-Creating a learning objective outline, considering how you will assess learning objective outcomes, and identifying dependencies will help you visualize how your level should play out. In general, a learning objective maps to a single `objective` within the game (an instance of a "hackable" object or barrier in the map). A single map should contain **six objectives or fewer**, and be doable by your target audience in **under 30 minutes**. These are not hard and fast rules, but hopefully useful hueristics as you plan out your content.
+Creating a learning objective outline, considering how you will assess learning objective outcomes, and identifying dependencies will help you visualize how your level should play out. In general, a learning objective maps to a single `objective` within the game (an instance of a "hackable" object or barrier in the map). A single map should contain **six objectives or fewer**, and be doable by your target audience in **under 30 minutes**. These are not hard and fast rules, but hopefully useful heuristics as you plan out your content.
 
 If you have more learning objectives than can fit into a single map, consider breaking up your content to span multiple maps.
 
