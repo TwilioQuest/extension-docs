@@ -7,6 +7,7 @@ A **level** in TwilioQuest is an explorable area in the game that can contain ob
 * A **VR training mission** accessible through the Fog Owl's training simulator room
 * A **location within The Cloud** that the player can navigate to using the Fog Owl's navigation map interface
 
+
 At the time of this writing, the best way to create a new level is to **copy the level folder** of an existing level. This will copy all the map and tileset configuration you will need to effectively create a new level. The example level folder [in the template repo](https://github.com/TwilioQuest/twilioquest-extension-template/tree/main/levels/vr_mission_template) is a good one to use. It contains all the necessary files you will need to create a level. After doing this, your new level folder should look similar to what's shown below:
 
 ```
