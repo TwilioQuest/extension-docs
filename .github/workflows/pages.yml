@@ -29,7 +29,5 @@ jobs:
           publish_dir: ./docs
 
       - name: Purge TQ backend assets
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: 'https://us-central1-twilioquest-prod.cloudfunctions.net/app/quest/api/v1/extension/purge/docs?auth=${{ secrets.EXTENSION_DOCS_DELETE_AUTH }}'
-          method: 'GET'
+        run: |
+          curl -X GET "https://us-central1-twilioquest-prod.cloudfunctions.net/app/quest/api/v1/extension/purge/docs?auth=${{ secrets.EXTENSION_DOCS_DELETE_AUTH }}" -v
